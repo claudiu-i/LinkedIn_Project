@@ -1,0 +1,6 @@
+# dune init project a7
+# OCAMLPARAM: unset
+# Shared cache: disabled
+# Shared cache location: /Users/claudiui/.cache/dune/db
+# Workspace root: /Users/claudiui/cs3110/assignments/a7
+# Auto-detected concurrency: 10
