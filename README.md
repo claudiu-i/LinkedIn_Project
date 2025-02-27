@@ -51,8 +51,8 @@ The project is organized into two main directories:
 ### Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/linkedin-rooms-mvp.git
-cd linkedin-rooms-mvp
+git clone https://github.com/claudiu-i/LinkedIn_Project.git
+cd LinkedIn_Project
 ```
 
 ### Backend Setup
