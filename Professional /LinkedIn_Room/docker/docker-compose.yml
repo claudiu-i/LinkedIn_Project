@@ -1,0 +1,42 @@
+# docker/docker-compose.yml
+version: '3.8'
+
+services:
+  # Backend service
+  server:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.server
+    container_name: linkedin-rooms-server
+    environment:
+      NODE_ENV: production
+      PORT: 5000
+      CLERK_API_KEY: ${CLERK_API_KEY}
+      CLIENT_URL: http://localhost:3000
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
+    networks:
+      - app-network
+
+  # Frontend service
+  client:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.client
+    container_name: linkedin-rooms-client
+    environment:
+      REACT_APP_API_URL: http://localhost:5000/api
+      REACT_APP_WS_URL: http://localhost:5000
+      REACT_APP_CLERK_PUBLISHABLE_KEY: ${REACT_APP_CLERK_PUBLISHABLE_KEY}
+    ports:
+      - "3000:80"
+    depends_on:
+      - server
+    restart: unless-stopped
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
