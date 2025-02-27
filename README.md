@@ -139,7 +139,7 @@ docker-compose -f docker/docker-compose.yml up -d --build
 - **Host**: The creator of the room with full control over participants
 - **Speaker**: Users who can share audio, video, and screen
 - **Listener**: Users who can only view and listen
-
+<!-- 
 ## Important Notes for Demonstration
 
 1. **Data Persistence**: All data is stored in-memory and will be lost when the server restarts. This is by design for the MVP demonstration.
@@ -148,4 +148,4 @@ docker-compose -f docker/docker-compose.yml up -d --build
 
 3. **Cross-Computer Access**: Users on different computers can join the same room by accessing the deployed application URL (e.g., http://server-ip:3000).
 
-4. **Room Sharing**: To share a room with others, simply share the URL of the room (e.g., http://server-ip:3000/room/[room-id]).
+4. **Room Sharing**: To share a room with others, simply share the URL of the room (e.g., http://server-ip:3000/room/[room-id]). -->
