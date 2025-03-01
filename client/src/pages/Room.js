@@ -1,7 +1,6 @@
 // src/pages/Room.js
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useUser } from '@clerk/clerk-react';
 import axios from 'axios';
 
 const API_URL = process.env.REACT_APP_API_URL;
@@ -9,7 +8,6 @@ const API_URL = process.env.REACT_APP_API_URL;
 const Room = () => {
   const { roomId } = useParams();
   const navigate = useNavigate();
-  const { user } = useUser();
   
   const [room, setRoom] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -24,12 +22,10 @@ const Room = () => {
   useEffect(() => {
     const fetchRoom = async () => {
       try {
-        setLoading(true);
-        const token = await user.getToken();
-        
+        setLoading(true);        
         const response = await axios.get(`${API_URL}/rooms/${roomId}`, {
           headers: {
-            Authorization: `Bearer ${token}`
+            Authorization: `Bearer`
           }
         });
         
@@ -41,29 +37,15 @@ const Room = () => {
         setLoading(false);
       }
     };
-    
-    if (user) {
       fetchRoom();
-    }
-  }, [roomId, user]);
+  }, [roomId]);
   
   const handleJoinRoom = async () => {
     try {
-      const token = await user.getToken();
-      
-      await axios.post(`${API_URL}/rooms/${roomId}/join`, 
-        { accessCode },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        }
-      );
-      
       // Refetch room data after joining
       const response = await axios.get(`${API_URL}/rooms/${roomId}`, {
         headers: {
-          Authorization: `Bearer ${token}`
+          Authorization: `Bearer`
         }
       });
       
@@ -76,14 +58,6 @@ const Room = () => {
   
   const handleLeaveRoom = async () => {
     try {
-      const token = await user.getToken();
-      
-      await axios.post(`${API_URL}/rooms/${roomId}/leave`, {}, {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      });
-      
       navigate('/');
     } catch (err) {
       console.error('Error leaving room:', err);
@@ -109,7 +83,7 @@ const Room = () => {
   }
   
   // Check if room is private and user needs to enter access code
-  if (room.isPrivate && !room.participants?.some(p => p.userId === user.id)) {
+  if (room.isPrivate) {
     return (
       <div className="container">
         <div className="auth-container">

@@ -1,14 +1,9 @@
 // src/pages/CreateRoom.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useUser } from '@clerk/clerk-react';
-import axios from 'axios';
-
-const API_URL = process.env.REACT_APP_API_URL;
 
 const CreateRoom = () => {
   const navigate = useNavigate();
-  const { user } = useUser();
   
   const [formData, setFormData] = useState({
     name: '',
@@ -54,16 +49,7 @@ const CreateRoom = () => {
         return;
       }
       
-      const token = await user.getToken();
-      
-      const response = await axios.post(`${API_URL}/rooms`, formData, {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      });
-      
       // Navigate to the new room
-      navigate(`/room/${response.data.data.id}`);
     } catch (err) {
       console.error('Error creating room:', err);
       setError('Failed to create room. Please try again.');

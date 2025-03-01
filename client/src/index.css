@@ -21,6 +21,14 @@
       monospace;
   }
   
+  .dummy-side {
+    color: inherit;
+  }
+
+  .dummy-side:hover {
+    color: inherit;
+    text-decoration: underline;
+  }
   .container {
     max-width: 1200px;
     margin: 0 auto;
