@@ -10,7 +10,6 @@ LinkedIn Rooms is a demonstration application allowing recruiters to host real-t
 - **Resume Filtering**: Filter participants based on skills, experience, and location
 - **Geographic Restrictions**: Limit room access to specific regions
 - **Private Rooms**: Create private rooms with access codes
-- **User Authentication**: Secure authentication using Clerk
 
 ## Note on Data Persistence
 
@@ -25,13 +24,11 @@ The application is built with the following technologies:
 - WebRTC (Simple Peer)
 - WebSockets (Socket.IO client)
 - Tailwind CSS for styling
-- Clerk for authentication
 
 ### Backend
 - Node.js with Express
 - In-memory data store
 - WebSockets (Socket.IO server)
-- Clerk for authentication
 
 ## Project Structure
 
@@ -44,7 +41,6 @@ The project is organized into two main directories:
 
 - Node.js (v16+)
 - npm or yarn
-- Clerk account (for authentication)
 
 ## Setup and Installation
 
@@ -69,15 +65,7 @@ cd server
 npm install
 ```
 
-3. Create a `.env` file based on the `.env.example` template:
-
-```bash
-cp .env.example .env
-```
-
-4. Update the `.env` file with your Clerk API key.
-
-5. Start the development server:
+3. Start the development server:
 
 ```bash
 npm run dev
@@ -97,15 +85,7 @@ cd client
 npm install
 ```
 
-3. Create a `.env` file based on the `.env.example` template:
-
-```bash
-cp .env.example .env
-```
-
-4. Update the `.env` file with your Clerk publishable key.
-
-5. Start the development server:
+3. Start the development server:
 
 ```bash
 npm start
@@ -117,14 +97,7 @@ You can deploy the entire application using Docker Compose:
 
 1. Make sure Docker and Docker Compose are installed on your system.
 
-2. Create a `.env` file in the root directory with the required environment variables:
-
-```bash
-CLERK_API_KEY=your_clerk_api_key
-REACT_APP_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
-```
-
-3. Build and start the containers:
+2. Build and start the containers:
 
 ```bash
 docker-compose -f docker/docker-compose.yml up -d --build
