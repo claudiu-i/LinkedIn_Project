@@ -8,13 +8,13 @@ import {
   Space,
   Flex,
   Menu,
-  Input
-} from 'antd'
+  Input,
+} from 'antd';
 import Icon, {
   PlusOutlined,
   SearchOutlined,
-  CaretDownOutlined
-} from '@ant-design/icons'
+  CaretDownOutlined,
+} from '@ant-design/icons';
 const { Header, Footer, Sider, Content } = Layout
 const { Meta } = Card
 const { Text } = Typography
@@ -165,6 +165,159 @@ const UserSvg = () => (
     <path d='M8 10.5A1.5 1.5 0 119.5 12 1.5 1.5 0 018 10.5zm6.5 1.5a1.5 1.5 0 10-1.5-1.5 1.5 1.5 0 001.5 1.5zm7.5 0A10 10 0 1112 2a10 10 0 0110 10zm-2 0a8 8 0 10-8 8 8 8 0 008-8zm-8 4a6 6 0 01-4.24-1.76l-.71.76a7 7 0 009.89 0l-.71-.71A6 6 0 0112 16z'></path>
   </svg>
 )
+
+const InfoSvg = () => (
+  <svg
+    xmlns='http://www.w3.org/2000/svg'
+    viewBox='0 0 24 24'
+    width='24'
+    height='24'
+    fill='currentColor'>
+      <path d="M12 2H4a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2zm-3 8v2H7.5A1.5 1.5 0 016 10.5a1.56 1.56 0 01.1-.5l1.08-3h2.13l-1.09 3zm0-3.75A1.25 1.25 0 1110.25 5 1.25 1.25 0 019 6.25z"></path>
+   </svg>
+)
+
+const DownArrowSvg = () => (
+    <svg
+        xmlns='http://www.w3.org/2000/svg'
+        viewBox='0 0 24 24'
+        width='24'
+        height='24'
+        fill='currentColor'>
+        <path d="M1 5l7 4.61L15 5v2.39L8 12 1 7.39z"></path>
+    </svg>
+)
+const TangoSvg = () => (   
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_29135_360925)">
+<g clip-path="url(#clip1_29135_360925)">
+<path d="M1 1H16V16H1V1Z" fill="#7FADED"/>
+<path d="M16 1H31V16H16V1Z" fill="#F5F5F5"/>
+<path d="M1 16H16V31H1V16Z" fill="#F5F5F5"/>
+<path d="M16 16H31V31H16V16Z" fill="#FFBA33"/>
+</g>
+<path d="M27 0.5H5L4.96342 0.5C4.05169 0.499986 3.31681 0.499975 2.73883 0.577682C2.13876 0.658359 1.63351 0.830955 1.23223 1.23223C0.830955 1.63351 0.658359 2.13876 0.577682 2.73883C0.499975 3.31681 0.499986 4.05169 0.5 4.96342L0.5 5V27L0.5 27.0366C0.499986 27.9483 0.499975 28.6832 0.577682 29.2612C0.658359 29.8612 0.830955 30.3665 1.23223 30.7678C1.63351 31.169 2.13876 31.3416 2.73883 31.4223C3.31681 31.5 4.05168 31.5 4.9634 31.5H5H27H27.0366C27.9483 31.5 28.6832 31.5 29.2612 31.4223C29.8612 31.3416 30.3665 31.169 30.7678 30.7678C31.169 30.3665 31.3416 29.8612 31.4223 29.2612C31.5 28.6832 31.5 27.9483 31.5 27.0366V27V5V4.9634C31.5 4.05168 31.5 3.31681 31.4223 2.73883C31.3416 2.13876 31.169 1.63351 30.7678 1.23223C30.3665 0.830955 29.8612 0.658359 29.2612 0.577682C28.6832 0.499975 27.9483 0.499986 27.0366 0.5L27 0.5Z" stroke="black" stroke-opacity="0.9"/>
+</g>
+<defs>
+<clipPath id="clip0_29135_360925">
+<path d="M0 4C0 2.11438 0 1.17157 0.585786 0.585786C1.17157 0 2.11438 0 4 0H28C29.8856 0 30.8284 0 31.4142 0.585786C32 1.17157 32 2.11438 32 4V28C32 29.8856 32 30.8284 31.4142 31.4142C30.8284 32 29.8856 32 28 32H4C2.11438 32 1.17157 32 0.585786 31.4142C0 30.8284 0 29.8856 0 28V4Z" fill="white"/>
+</clipPath>
+<clipPath id="clip1_29135_360925">
+<path d="M1 5C1 3.11438 1 2.17157 1.58579 1.58579C2.17157 1 3.11438 1 5 1H27C28.8856 1 29.8284 1 30.4142 1.58579C31 2.17157 31 3.11438 31 5V27C31 28.8856 31 29.8284 30.4142 30.4142C29.8284 31 28.8856 31 27 31H5C3.11438 31 2.17157 31 1.58579 30.4142C1 29.8284 1 28.8856 1 27V5Z" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+
+)
+const QueenSvg = () => (
+  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g clip-path="url(#clip0_12111_176736)">
+  <path d="M1 5C1 3.11438 1 2.17157 1.58579 1.58579C2.17157 1 3.11438 1 5 1H27C28.8856 1 29.8284 1 30.4142 1.58579C31 2.17157 31 3.11438 31 5V27C31 28.8856 31 29.8284 30.4142 30.4142C29.8284 31 28.8856 31 27 31H5C3.11438 31 2.17157 31 1.58579 30.4142C1 29.8284 1 28.8856 1 27V5Z" fill="black" fill-opacity="0.9"/>
+  <rect width="9.66667" height="9.66667" transform="translate(1 1)" fill="#C9B5E8"/>
+  <rect width="9.66667" height="9.66667" transform="translate(11.168 1)" fill="#C9B5E8"/>
+  <rect width="9.66667" height="9.66667" transform="translate(21.332 1)" fill="#FFD4A8"/>
+  <rect width="9.66667" height="9.66667" transform="translate(1 11.1665)" fill="#ABCBFF"/>
+  <rect width="9.66667" height="9.66667" transform="translate(11.168 11.1665)" fill="#C2E6B3"/>
+  <rect width="9.66667" height="9.66667" transform="translate(21.332 11.1665)" fill="#FFD4A8"/>
+  <rect width="9.66667" height="9.66667" transform="translate(1 21.3335)" fill="#ABCBFF"/>
+  <rect width="9.66667" height="9.66667" transform="translate(11.168 21.3335)" fill="#E5E5E5"/>
+  <rect width="9.66667" height="9.66667" transform="translate(21.332 21.3335)" fill="#E5E5E5"/>
+  </g>
+  <path d="M1.23223 1.23223C0.830955 1.63351 0.65836 2.13876 0.577682 2.73883C0.499975 3.31681 0.499986 4.05169 0.5 4.96342L0.5 5V27L0.5 27.0366C0.499986 27.9483 0.499975 28.6832 0.577682 29.2612C0.65836 29.8612 0.830955 30.3665 1.23223 30.7678C1.63351 31.169 2.13876 31.3416 2.73883 31.4223C3.31681 31.5 4.05168 31.5 4.9634 31.5H5H27H27.0366C27.9483 31.5 28.6832 31.5 29.2612 31.4223C29.8612 31.3416 30.3665 31.169 30.7678 30.7678C31.169 30.3665 31.3416 29.8612 31.4223 29.2612C31.5 28.6832 31.5 27.9483 31.5 27.0366V27V5V4.9634C31.5 4.05168 31.5 3.31681 31.4223 2.73883C31.3416 2.13876 31.169 1.63351 30.7678 1.23223C30.3665 0.830955 29.8612 0.65836 29.2612 0.577682C28.6832 0.499975 27.9483 0.499986 27.0366 0.5L27 0.5H5L4.96342 0.5C4.05169 0.499986 3.31681 0.499975 2.73883 0.577682C2.13876 0.658359 1.63351 0.830955 1.23223 1.23223Z" stroke="black" stroke-opacity="0.9" stroke-linejoin="round"/>
+  <defs>
+  <clipPath id="clip0_12111_176736">
+  <path d="M1 5C1 3.11438 1 2.17157 1.58579 1.58579C2.17157 1 3.11438 1 5 1H27C28.8856 1 29.8284 1 30.4142 1.58579C31 2.17157 31 3.11438 31 5V27C31 28.8856 31 29.8284 30.4142 30.4142C29.8284 31 28.8856 31 27 31H5C3.11438 31 2.17157 31 1.58579 30.4142C1 29.8284 1 28.8856 1 27V5Z" fill="white"/>
+  </clipPath>
+  </defs>
+  </svg>
+)
+const CrossSvg = () => (
+  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g clip-path="url(#clip0_12111_176787)">
+  <path d="M1 5C1 3.11438 1 2.17157 1.58579 1.58579C2.17157 1 3.11438 1 5 1H27C28.8856 1 29.8284 1 30.4142 1.58579C31 2.17157 31 3.11438 31 5V27C31 28.8856 31 29.8284 30.4142 30.4142C29.8284 31 28.8856 31 27 31H5C3.11438 31 2.17157 31 1.58579 30.4142C1 29.8284 1 28.8856 1 27V5Z" fill="#76C3CF"/>
+  <mask id="path-3-inside-1_12111_176787" fill="white">
+  <path d="M7.5 6.5C7.5 6.22386 7.72386 6 8 6C8.27614 6 8.5 6.22386 8.5 6.5V25.5C8.5 25.7761 8.27614 26 8 26C7.72386 26 7.5 25.7761 7.5 25.5V6.5Z"/>
+  </mask>
+  <path d="M7.5 6.5C7.5 6.22386 7.72386 6 8 6C8.27614 6 8.5 6.22386 8.5 6.5V25.5C8.5 25.7761 8.27614 26 8 26C7.72386 26 7.5 25.7761 7.5 25.5V6.5Z" fill="url(#paint0_linear_12111_176787)"/>
+  <path d="M7.5 6H8.5H7.5ZM8.5 26C8.5 26.2761 8.27614 26.5 8 26.5C7.72386 26.5 7.5 26.2761 7.5 26V25.5C7.5 25.5 7.72386 25.5 8 25.5C8.27614 25.5 8.5 25.5 8.5 25.5V26ZM7.5 26V6V26ZM8.5 6V26V6Z" fill="black" fill-opacity="0.08" mask="url(#path-3-inside-1_12111_176787)"/>
+  <mask id="path-5-inside-2_12111_176787" fill="white">
+  <path d="M13 6C13 5.5286 13 5.29289 13.1464 5.14645C13.2929 5 13.5286 5 14 5H31V11H14C13.5286 11 13.2929 11 13.1464 10.8536C13 10.7071 13 10.4714 13 10V6Z"/>
+  </mask>
+  <path d="M13 6C13 5.5286 13 5.29289 13.1464 5.14645C13.2929 5 13.5286 5 14 5H31V11H14C13.5286 11 13.2929 11 13.1464 10.8536C13 10.7071 13 10.4714 13 10V6Z" fill="url(#paint1_linear_12111_176787)"/>
+  <path d="M13 5H31H13ZM31 11.5H14C13.4477 11.5 13 11.0523 13 10.5C13 10.5 13.2239 10.5 13.5 10.5H31V11.5ZM13 11V5V11ZM31 5V11V5Z" fill="black" fill-opacity="0.08" mask="url(#path-5-inside-2_12111_176787)"/>
+  <mask id="path-7-inside-3_12111_176787" fill="white">
+  <path d="M4 14C4 13.5286 4 13.2929 4.14645 13.1464C4.29289 13 4.5286 13 5 13H39C39.4714 13 39.7071 13 39.8536 13.1464C40 13.2929 40 13.5286 40 14V18C40 18.4714 40 18.7071 39.8536 18.8536C39.7071 19 39.4714 19 39 19H5C4.5286 19 4.29289 19 4.14645 18.8536C4 18.7071 4 18.4714 4 18V14Z"/>
+  </mask>
+  <path d="M4 14C4 13.5286 4 13.2929 4.14645 13.1464C4.29289 13 4.5286 13 5 13H39C39.4714 13 39.7071 13 39.8536 13.1464C40 13.2929 40 13.5286 40 14V18C40 18.4714 40 18.7071 39.8536 18.8536C39.7071 19 39.4714 19 39 19H5C4.5286 19 4.29289 19 4.14645 18.8536C4 18.7071 4 18.4714 4 18V14Z" fill="url(#paint2_linear_12111_176787)"/>
+  <path d="M4 13H40H4ZM40 18.5C40 19.0523 39.5523 19.5 39 19.5H5C4.44772 19.5 4 19.0523 4 18.5C4 18.5 4.22386 18.5 4.5 18.5H39.5C39.7761 18.5 40 18.5 40 18.5ZM4 19V13V19ZM40 13V19V13Z" fill="black" fill-opacity="0.08" mask="url(#path-7-inside-3_12111_176787)"/>
+  <mask id="path-9-inside-4_12111_176787" fill="white">
+  <path d="M13 22C13 21.5286 13 21.2929 13.1464 21.1464C13.2929 21 13.5286 21 14 21H31V27H14C13.5286 27 13.2929 27 13.1464 26.8536C13 26.7071 13 26.4714 13 26V22Z"/>
+  </mask>
+  <path d="M13 22C13 21.5286 13 21.2929 13.1464 21.1464C13.2929 21 13.5286 21 14 21H31V27H14C13.5286 27 13.2929 27 13.1464 26.8536C13 26.7071 13 26.4714 13 26V22Z" fill="url(#paint3_linear_12111_176787)"/>
+  <path d="M13 21H31H13ZM31 27.5H14C13.4477 27.5 13 27.0523 13 26.5C13 26.5 13.2239 26.5 13.5 26.5H31V27.5ZM13 27V21V27ZM31 21V27V21Z" fill="black" fill-opacity="0.08" mask="url(#path-9-inside-4_12111_176787)"/>
+  <path d="M5.66927 17C5.57483 17 5.49566 16.9681 5.43177 16.9042C5.36788 16.8403 5.33594 16.7611 5.33594 16.6667C5.33594 16.5722 5.36788 16.4931 5.43177 16.4292C5.49566 16.3653 5.57483 16.3333 5.66927 16.3333H10.3359C10.4304 16.3333 10.5095 16.3653 10.5734 16.4292C10.6373 16.4931 10.6693 16.5722 10.6693 16.6667C10.6693 16.7611 10.6373 16.8403 10.5734 16.9042C10.5095 16.9681 10.4304 17 10.3359 17H5.66927ZM5.66927 15.6667C5.57483 15.6667 5.49566 15.6347 5.43177 15.5708C5.36788 15.5069 5.33594 15.4278 5.33594 15.3333C5.33594 15.2389 5.36788 15.1597 5.43177 15.0958C5.49566 15.0319 5.57483 15 5.66927 15H10.3359C10.4304 15 10.5095 15.0319 10.5734 15.0958C10.6373 15.1597 10.6693 15.2389 10.6693 15.3333C10.6693 15.4278 10.6373 15.5069 10.5734 15.5708C10.5095 15.6347 10.4304 15.6667 10.3359 15.6667H5.66927Z" fill="#76C3CF"/>
+  </g>
+  <path d="M1.23223 1.23223C0.830955 1.63351 0.65836 2.13876 0.577682 2.73883C0.499975 3.31681 0.499986 4.05169 0.5 4.96342L0.5 5V27L0.5 27.0366C0.499986 27.9483 0.499975 28.6832 0.577682 29.2612C0.65836 29.8612 0.830955 30.3665 1.23223 30.7678C1.63351 31.169 2.13876 31.3416 2.73883 31.4223C3.31681 31.5 4.05168 31.5 4.9634 31.5H5H27H27.0366C27.9483 31.5 28.6832 31.5 29.2612 31.4223C29.8612 31.3416 30.3665 31.169 30.7678 30.7678C31.169 30.3665 31.3416 29.8612 31.4223 29.2612C31.5 28.6832 31.5 27.9483 31.5 27.0366V27V5V4.9634C31.5 4.05168 31.5 3.31681 31.4223 2.73883C31.3416 2.13876 31.169 1.63351 30.7678 1.23223C30.3665 0.830955 29.8612 0.65836 29.2612 0.577682C28.6832 0.499975 27.9483 0.499986 27.0366 0.5L27 0.5H5L4.96342 0.5C4.05169 0.499986 3.31681 0.499975 2.73883 0.577682C2.13876 0.658359 1.63351 0.830955 1.23223 1.23223Z" stroke="black" stroke-opacity="0.9" stroke-linejoin="round"/>
+  <defs>
+  <linearGradient id="paint0_linear_12111_176787" x1="8" y1="6" x2="8.00001" y2="26" gradientUnits="userSpaceOnUse">
+  <stop stop-color="white"/>
+  <stop offset="1" stop-color="#FAFAFA"/>
+  </linearGradient>
+  <linearGradient id="paint1_linear_12111_176787" x1="22" y1="5" x2="22" y2="11" gradientUnits="userSpaceOnUse">
+  <stop stop-color="#FFD8C2"/>
+  <stop offset="1" stop-color="#FFDFCC"/>
+  </linearGradient>
+  <linearGradient id="paint2_linear_12111_176787" x1="22" y1="13" x2="22" y2="19" gradientUnits="userSpaceOnUse">
+  <stop stop-color="white"/>
+  <stop offset="1" stop-color="#FAFAFA"/>
+  </linearGradient>
+  <linearGradient id="paint3_linear_12111_176787" x1="22" y1="21" x2="22" y2="27" gradientUnits="userSpaceOnUse">
+  <stop stop-color="#FFD8C2"/>
+  <stop offset="1" stop-color="#FFDFCC"/>
+  </linearGradient>
+  <clipPath id="clip0_12111_176787">
+  <path d="M1 5C1 3.11438 1 2.17157 1.58579 1.58579C2.17157 1 3.11438 1 5 1H27C28.8856 1 29.8284 1 30.4142 1.58579C31 2.17157 31 3.11438 31 5V27C31 28.8856 31 29.8284 30.4142 30.4142C29.8284 31 28.8856 31 27 31H5C3.11438 31 2.17157 31 1.58579 30.4142C1 29.8284 1 28.8856 1 27V5Z" fill="white"/>
+  </clipPath>
+  </defs>
+  </svg>
+)
+const PinPointSvg = () => (
+  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g clip-path="url(#clip0_12111_176713)">
+  <path d="M1 5C1 3.11438 1 2.17157 1.58579 1.58579C2.17157 1 3.11438 1 5 1H27C28.8856 1 29.8284 1 30.4142 1.58579C31 2.17157 31 3.11438 31 5V27C31 28.8856 31 29.8284 30.4142 30.4142C29.8284 31 28.8856 31 27 31H5C3.11438 31 2.17157 31 1.58579 30.4142C1 29.8284 1 28.8856 1 27V5Z" fill="black" fill-opacity="0.9"/>
+  <g clip-path="url(#clip1_12111_176713)">
+  <rect width="30" height="30" transform="translate(1 1)" fill="#0466C8"/>
+  <rect width="30" height="10" transform="translate(1 1)" fill="#A8CFFF"/>
+  <rect width="30" height="10" transform="translate(1 11)" fill="#4997F5"/>
+  <rect width="30" height="10" transform="translate(1 21)" fill="#2A7ADB"/>
+  </g>
+  </g>
+  <path d="M1.23223 1.23223C0.830955 1.63351 0.65836 2.13876 0.577682 2.73883C0.499975 3.31681 0.499986 4.05169 0.5 4.96342L0.5 5V27L0.5 27.0366C0.499986 27.9483 0.499975 28.6832 0.577682 29.2612C0.65836 29.8612 0.830955 30.3665 1.23223 30.7678C1.63351 31.169 2.13876 31.3416 2.73883 31.4223C3.31681 31.5 4.05168 31.5 4.9634 31.5H5H27H27.0366C27.9483 31.5 28.6832 31.5 29.2612 31.4223C29.8612 31.3416 30.3665 31.169 30.7678 30.7678C31.169 30.3665 31.3416 29.8612 31.4223 29.2612C31.5 28.6832 31.5 27.9483 31.5 27.0366V27V5V4.9634C31.5 4.05168 31.5 3.31681 31.4223 2.73883C31.3416 2.13876 31.169 1.63351 30.7678 1.23223C30.3665 0.830955 29.8612 0.65836 29.2612 0.577682C28.6832 0.499975 27.9483 0.499986 27.0366 0.5L27 0.5H5L4.96342 0.5C4.05169 0.499986 3.31681 0.499975 2.73883 0.577682C2.13876 0.658359 1.63351 0.830955 1.23223 1.23223Z" stroke="black" stroke-opacity="0.9" stroke-linejoin="round"/>
+  <defs>
+  <clipPath id="clip0_12111_176713">
+  <path d="M1 5C1 3.11438 1 2.17157 1.58579 1.58579C2.17157 1 3.11438 1 5 1H27C28.8856 1 29.8284 1 30.4142 1.58579C31 2.17157 31 3.11438 31 5V27C31 28.8856 31 29.8284 30.4142 30.4142C29.8284 31 28.8856 31 27 31H5C3.11438 31 2.17157 31 1.58579 30.4142C1 29.8284 1 28.8856 1 27V5Z" fill="white"/>
+  </clipPath>
+  <clipPath id="clip1_12111_176713">
+  <rect width="30" height="30" fill="white" transform="translate(1 1)"/>
+  </clipPath>
+  </defs>
+  </svg>
+)
+const RightArrowSvg = () => (
+  <svg
+    xmlns='http://www.w3.org/2000/svg'
+    viewBox='0 0 24 24'
+    width='24'
+    height='24'
+    fill='currentColor'>
+  <path d="M5 15l4.61-7L5 1h2.39L12 8l-4.61 7z"></path>
+  </svg>
+)
+const RightArrowIcon = props => <Icon component={RightArrowSvg} {...props} />
+const PinPointIcon = props => <Icon component={PinPointSvg} {...props} />
+const QueenIcon = props => <Icon component={QueenSvg} {...props} />
+const CrossIcon = props => <Icon component={CrossSvg} {...props} />
+const TangoIcon = props => <Icon component={TangoSvg} {...props} />
 const BookmarkIcon = props => <Icon component={BookmarkSvg} {...props} />
 const GroupIcon = props => <Icon component={GroupsSvg} {...props} />
 const NewsIcon = props => <Icon component={NewsSvg} {...props} />
@@ -173,14 +326,12 @@ const HomeIcon = props => <Icon component={HomeSvg} {...props} />
 const NetworkIcon = props => <Icon component={NetworkSvg} {...props} />
 const JobsIcon = props => <Icon component={JobsSvg} {...props} />
 const MessageIcon = props => <Icon component={MessageSvg} {...props} />
-const NotificationsIcon = props => (
-  <Icon component={NotificationsSvg} {...props} />
-)
-const LinkedInLogoIcon = props => (
-  <Icon component={LinkedInLogoSvg} {...props} />
-)
+const NotificationsIcon = props => <Icon component={NotificationsSvg} {...props} />
+const LinkedInLogoIcon = props => <Icon component={LinkedInLogoSvg} {...props} />
 const BusinessIcon = props => <Icon component={BusinessSvg} {...props} />
 const UserIcon = props => <Icon component={UserSvg} {...props} />
+const InfoIcon = props => <Icon component={InfoSvg} {...props} />
+const DownArrowIcon = props => <Icon component={DownArrowSvg} {...props} />
 
 const headerStyle = {
   color: '#fff',
@@ -357,52 +508,159 @@ const LinkedInCard = ({
 
 const LinkedInNewsCard = () => {
 return (
-<Card
-    style={{
-      width: 'auto',
-      borderRadius: 8,
-      overflow: 'hidden',
-      boxShadow: '0 1px 2px rgba(0,0,0,0.15)',
-    }}
-    bodyStyle={{
-                paddingLeft: '15px',
-                paddingTop: '5px '
-              }}
-  >
-    <h2 style={{fontWeight:600}}>LinkedIn News</h2>
-    <h3 style={{color: '#666666', fontWeight:600}}>Top Stories</h3>
-    <Menu
-        selectable = {false}
-        mode='vertical'
-        itemMarginInBlock = {0}
+    <Card
         style={{
-            border: 'none',
-            backgroundColor: 'white',
-            marginLeft: -20,
-            overflow: ''
+            width: 'auto',
+            borderRadius: 8,
+            overflow: 'hidden',
+            boxShadow: '0 1px 2px rgba(0,0,0,0.15)',
+            fontSize: 13,
         }}
-        items={[
-            {
-            key: '1',
-            label: <p style={{width: '500px'}}>Amazon beefing up its Temu rival'</p>
-            },
-            {
-            key: '2',
-            label: 'Groups'
-            },
-            {
-            key: '3',
-            label: 'Newsletters'
-            },
-            {
-            key: '4',
-            label: 'Events'
-            }
-        ]}
+        bodyStyle={{
+            paddingLeft: '15px',
+            paddingTop: '8px ',
+            paddingRight: 0,
+            marginRight: -3
+        }}
+    >
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <h2 style={{ fontWeight: 600 }}>LinkedIn News</h2>
+            {/* eslint-disable-next-line */}
+            <a style={{color: "black"}} href='#'><InfoIcon/></a>
+        </div>
+        <h3 style={{ color: '#666666', fontWeight: 600 }}>Top Stories</h3>
+        <Menu
+            selectable={false}
+            mode='vertical'
+            style={{
+                border: 'none',
+                backgroundColor: 'white',
+                marginLeft: -20,
+                marginTop: 10,
+                itemHeight: 'calc(auto + 2px)',
+                mode: "inline",
+            }}
+            items={[
+                {
+                    key: '1',
+                    label: 
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 3, lineHeight: 1}}>
+                            <h3 style={{ width: '500px', fontSize: 14, fontWeight: 600 }}>
+                                Amazon beefing up its Temu
+                            </h3>
+                            <p style={{color: '#655555'}}>
+                                5h ago • 4,566 readers
+                            </p>
+                        </div>
+                },
+                {
+                    key: '2',
+                    label: <div style={{ display: 'flex', flexDirection: 'column', gap: 3, lineHeight: 1 }}>
+                            <h3 style={{ width: '500px', fontSize: 14, fontWeight: 600 }}>
+                            Firefly spacecraft to land on moon
+                            </h3>
+                            <p style={{color: '#655555'}}>
+                                5h ago • 448 readers
+                            </p>
+                            </div>
+                },
+                {
+                    key: '3',
+                    label: <div style={{ display: 'flex', flexDirection: 'column', gap: 3, lineHeight: 1 }}>
+                            <h3 style={{ width: '500px', fontSize: 14, fontWeight: 600 }}>
+                                Inflation slowed in January
+                            </h3>
+                            <p style={{color: '#655555'}}>
+                                5h ago • 89,794 readers
+                            </p>
+                            </div>
+                },
+                {
+                    key: '4',
+                    label: <div style={{ display: 'flex', flexDirection: 'column', gap: 3, lineHeight: 1 }}>
+                            <h3 style={{ width: '500px', fontSize: 14, fontWeight: 600 }}>
+                            Outage takes down Microsoft Outlook
+                            </h3>
+                            <p style={{color: '#655555'}}>
+                                5h ago • 1,756 readers
+                            </p>
+                            </div>
+                },
+                {
+                    key: '5',
+                    label: <div style={{ display: 'flex', flexDirection: 'column', gap: 3, lineHeight: 1 }}>
+                            <h3 style={{ width: '500px', fontSize: 14, fontWeight: 600 }}>
+                            Meta cracks down on leakers
+                            </h3>
+                            <p style={{color: '#655555'}}>
+                                5h ago • 34,273 readers
+                            </p>
+                            </div>
+                },
+                {
+                    key: '6',
+                    label: <div style={{ display: 'flex', flexDirection: 'column', gap: 3, lineHeight: 1 }}>
+                            <h3 style={{ width: '500px', fontSize: 14, fontWeight: 600 }}>
+                            Microsoft to shut down Skype
+                            </h3>
+                            <p style={{color: '#655555'}}>
+                            5h ago • 237,097 readers
+                            </p>
+                            </div>
+                },
+            ]}
         />
-  </Card>
-)};
+        <Button style={{marginLeft: -10, marginTop: -5, fontWeight: 600, padding: '10px 10px', height: '20px'}} type="text">Show more<span style={{marginTop: 6, marginLeft: -3}}><DownArrowIcon/></span></Button>
+        <h3 style={{ color: '#666666', fontWeight: 600, margin: '10px auto', fontSize: 16 }}>Today's puzzles</h3>
 
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
+        <Button style={{marginLeft: -17, marginTop: -10, fontWeight: 600, paddingLeft: "18px", height: '52px'}} type="text">
+        <TangoIcon/> <div style={{ marginLeft: -10, display: 'flex', flexDirection: 'column', gap: 3, lineHeight: 1, textAlign: 'left' }}>
+                            <h3 style={{fontSize: 14, fontWeight: 600 }}>
+                            Tango
+                            </h3>
+                            <p style={{color: '#655555', fontSize: 12, fontWeight: 400}}>
+                            Harmonize the grid
+                            </p>
+                            </div>
+                            <span style={{marginTop: 6, marginLeft: 100}}><RightArrowIcon/></span>
+        </Button>
+        <Button style={{marginLeft: -17, marginTop: -10, fontWeight: 600, paddingLeft: "18px", height: '52px'}} type="text">
+        <QueenIcon/> <div style={{ marginLeft: -8, display: 'flex', flexDirection: 'column', gap: 3, lineHeight: 1, textAlign: 'left' }}>
+                            <h3 style={{fontSize: 14, fontWeight: 600 }}>
+                            Queens
+                            </h3>
+                            <p style={{color: '#655555', fontSize: 12, fontWeight: 400}}>
+                            Crown each region
+                            </p>
+                            </div>
+                            <span style={{marginTop: 6, marginLeft: 100}}><RightArrowIcon/></span>
+        </Button>
+        <Button style={{marginLeft: -17, marginTop: -10, fontWeight: 600, paddingLeft: "18px", height: '52px'}} type="text">
+        <PinPointIcon/> <div style={{ marginLeft: -10, display: 'flex', flexDirection: 'column', gap: 3, lineHeight: 1, textAlign: 'left' }}>
+                            <h3 style={{fontSize: 14, fontWeight: 600 }}>
+                            Pinpoint
+                            </h3>
+                            <p style={{color: '#655555', fontSize: 12, fontWeight: 400}}>
+                            Guess the category
+                            </p>
+                            </div>
+                            <span style={{marginTop: 6, marginLeft: 100}}><RightArrowIcon/></span>
+        </Button>
+        <Button style={{marginLeft: -17, marginTop: -10, fontWeight: 600, paddingLeft: "18px", height: '52px'}} type="text">
+        <CrossIcon/> <div style={{ marginLeft: -20, display: 'flex', flexDirection: 'column', gap: 3, lineHeight: 1, textAlign: 'left' }}>
+                            <h3 style={{fontSize: 14, fontWeight: 600, marginLeft: 10, }}>
+                            Crossclimb
+                            </h3>
+                            <p style={{color: '#655555', fontSize: 12, fontWeight: 400,marginLeft: 10,}}>
+                            Unlcok a trivia ladder
+                            </p>
+                            </div>
+                            <span style={{marginTop: 6, marginLeft: 90}}><RightArrowIcon/></span>
+        </Button>
+        </div>
+    </Card>
+)};
 const LinkedInNavbar = () => {
   return (
     <div
