@@ -30,7 +30,6 @@ const BookmarkSvg = () => (
     <path d='M2 2v13.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2' />
   </svg>
 )
-
 const GroupsSvg = () => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
@@ -46,7 +45,6 @@ const GroupsSvg = () => (
     <circle cx='3.5' cy='5.5' r='1.5'></circle>
   </svg>
 )
-
 const NewsSvg = () => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
@@ -58,7 +56,6 @@ const NewsSvg = () => (
     <path d='M13 4v8H3V4h10m2-2H1v10c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V2zm-3 3H4v2h8V5zM7 8H4v3h3V8zm5 0H8v1h4V8zm0 2H8v1h4v-1z'></path>
   </svg>
 )
-
 const EventSvg = () => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
@@ -70,19 +67,17 @@ const EventSvg = () => (
     <path d='M2 2v9a3 3 0 003 3h6a3 3 0 003-3V2zm8.5 1.5a1 1 0 11-1 1 1 1 0 011-1zm-5 0a1 1 0 11-1 1 1 1 0 011-1zM12 11a1 1 0 01-1 1H5a1 1 0 01-1-1V7h8z'></path>
   </svg>
 )
-
 const LinkedInLogoSvg = () => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
     viewBox='0 0 24 24'
-    width='36'
-    height='36'
+    width='40'
+    height='40'
     fill='currentColor'
   >
     <path d='M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z'></path>
   </svg>
 )
-
 const HomeSvg = () => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
@@ -94,7 +89,6 @@ const HomeSvg = () => (
     <path d='M23 9v2h-2v7a3 3 0 01-3 3h-4v-6h-4v6H6a3 3 0 01-3-3v-7H1V9l11-7 5 3.18V2h3v5.09z' />
   </svg>
 )
-
 const NetworkSvg = () => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
@@ -106,7 +100,6 @@ const NetworkSvg = () => (
     <path d='M12 16v6H3v-6a3 3 0 013-3h3a3 3 0 013 3zm5.5-3A3.5 3.5 0 1014 9.5a3.5 3.5 0 003.5 3.5zm1 2h-2a2.5 2.5 0 00-2.5 2.5V22h7v-4.5a2.5 2.5 0 00-2.5-2.5zM7.5 2A4.5 4.5 0 1012 6.5 4.49 4.49 0 007.5 2z' />
   </svg>
 )
-
 const JobsSvg = () => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
@@ -118,7 +111,6 @@ const JobsSvg = () => (
     <path d='M17 6V5a3 3 0 00-3-3h-4a3 3 0 00-3 3v1H2v4a3 3 0 003 3h14a3 3 0 003-3V6zM9 5a1 1 0 011-1h4a1 1 0 011 1v1H9zm10 9a4 4 0 003-1.38V17a3 3 0 01-3 3H5a3 3 0 01-3-3v-4.38A4 4 0 005 14z' />
   </svg>
 )
-
 const MessageSvg = () => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
@@ -130,7 +122,6 @@ const MessageSvg = () => (
     <path d='M16 4H8a7 7 0 000 14h4v4l8.16-5.39A6.78 6.78 0 0023 11a7 7 0 00-7-7zm-8 8.25A1.25 1.25 0 119.25 11 1.25 1.25 0 018 12.25zm4 0A1.25 1.25 0 1113.25 11 1.25 1.25 0 0112 12.25zm4 0A1.25 1.25 0 1117.25 11 1.25 1.25 0 0116 12.25z' />
   </svg>
 )
-
 const NotificationsSvg = () => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
@@ -142,7 +133,6 @@ const NotificationsSvg = () => (
     <path d='M22 19h-8.28a2 2 0 11-3.44 0H2v-1a4.52 4.52 0 011.17-2.83l1-1.17h15.7l1 1.17A4.42 4.42 0 0122 18zM18.21 7.44A6.27 6.27 0 0012 2a6.27 6.27 0 00-6.21 5.44L5 13h14z' />
   </svg>
 )
-
 const BusinessSvg = () => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
@@ -165,7 +155,6 @@ const UserSvg = () => (
     <path d='M8 10.5A1.5 1.5 0 119.5 12 1.5 1.5 0 018 10.5zm6.5 1.5a1.5 1.5 0 10-1.5-1.5 1.5 1.5 0 001.5 1.5zm7.5 0A10 10 0 1112 2a10 10 0 0110 10zm-2 0a8 8 0 10-8 8 8 8 0 008-8zm-8 4a6 6 0 01-4.24-1.76l-.71.76a7 7 0 009.89 0l-.71-.71A6 6 0 0112 16z'></path>
   </svg>
 )
-
 const InfoSvg = () => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
@@ -176,7 +165,6 @@ const InfoSvg = () => (
       <path d="M12 2H4a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2zm-3 8v2H7.5A1.5 1.5 0 016 10.5a1.56 1.56 0 01.1-.5l1.08-3h2.13l-1.09 3zm0-3.75A1.25 1.25 0 1110.25 5 1.25 1.25 0 019 6.25z"></path>
    </svg>
 )
-
 const DownArrowSvg = () => (
     <svg
         xmlns='http://www.w3.org/2000/svg'
@@ -678,12 +666,10 @@ const LinkedInNavbar = () => {
       <Space size='medium'>
         <Typography.Link
           href='#'
-          style={{ display: 'flex', alignItems: 'center' }}
+          style={{ display: 'flex', alignItems: 'center', marginLeft: -35 }}
         >
-          <LinkedInLogoIcon style={{ fontSize: 34, color: '#0a66c2' }} />
-        </Typography.Link>
-
-        <Input
+          <LinkedInLogoIcon style={{ fontSize: 38, color: '#0a66c2' }} />
+          <Input
           placeholder='Search'
           prefix={<SearchOutlined style={{ color: '#666' }} />}
           style={{
@@ -693,9 +679,11 @@ const LinkedInNavbar = () => {
             border: 'none',
             height: 34,
             fontSize: 14,
-            marginBottom: '10px'
+            marginBottom: '0',
+            marginLeft: 5
           }}
         />
+        </Typography.Link>
       </Space>
 
       {/* Right Section */}
@@ -770,7 +758,10 @@ const LinkedInPage = () => (
                 width: 'auto',
                 borderRadius: 8,
                 overflow: 'hidden',
-                boxShadow: '0 1px 2px rgba(0,0,0,0.15)'
+                boxShadow: '0 1px 2px rgba(0,0,0,0.15)',
+                fontSize: 12,
+                lineHeight: 2,
+                fontWeight: 550
               }}
             >
               {/* eslint-disable-next-line */}
@@ -780,7 +771,7 @@ const LinkedInPage = () => (
                 style={{
                   display: 'flex',
                   justifyContent: 'space-between',
-                  width: '100%'
+                  width: '100%', 
                 }}
               >
                 Profile viewers
@@ -810,8 +801,11 @@ const LinkedInPage = () => (
                 selectable = {false}
                 mode='vertical'
                 style={{
+                  itemHeight: '10px',
                   border: 'none',
-                  backgroundColor: 'white'
+                  backgroundColor: 'white',
+                  fontSize: 12,
+                  fontWeight: 550,
                 }}
                 items={[
                   {
