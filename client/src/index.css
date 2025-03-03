@@ -358,42 +358,47 @@
     border-radius: 4px;
     font-size: 14px;
   }
-  
   .room-actions {
     margin-top: 15px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
   }
-
   .linkedin-content .ant-card-actions > li {
     border: none;
     border-inline-end: 0px !important;
  }
-
  .linkedin-content .ant-card-actions {
   border: none;
   display: flex;
-  margin-left: 0px;
+  margin-left: -20px;;
 }
-
 .linkedin-content .ant-card-meta-avatar {
   padding: 0px;
   margin-left: -10px;
   margin-top: 10px;
 }
-
 .linkedin-content .ant-card-body {
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 10px;
 }
-
 .linked-action {
   border-radius: 10px;
   padding: 10px 0px;
-  width: 120px;
-
+  width: auto;
+  background: none;
+  border: none; 
+}
+.linked-action p {
+  font-weight: 600; 
 }
 .linked-action:hover {
   background-color: #f3f3f3;
+}
+.home-foot:hover {
+  color: #0077b5;
+  text-decoration: underline;
+}
+.content-card .ant-card-actions > li {
+  border-inline-end: 0px !important;
 }

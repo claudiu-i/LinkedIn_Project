@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import {
   Layout,
   Avatar,
@@ -15,7 +16,7 @@ import Icon, {
   SearchOutlined,
   CaretDownOutlined,
 } from '@ant-design/icons';
-const { Header, Footer, Sider, Content } = Layout
+const { Header, Sider, Content } = Layout
 const { Meta } = Card
 const { Text } = Typography
 
@@ -323,8 +324,8 @@ const ArticleSvg = () => (
 </svg>
 )
 const RoomsSvg = () => (
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' fill='green'>
-{/* TODO */}
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' width='24' height='24' fill='green'>
+<path fill-rule="evenodd" d="M2.218 0C1.545 0 1 .545 1 1.218v4.57c0 .674.545 1.22 1.218 1.22h9.564c.673 0 1.218-.546 1.218-1.22v-4.57C13 .545 12.455 0 11.782 0zm2.703 9.441a1.441 1.441 0 1 1-2.883 0a1.441 1.441 0 0 1 2.883 0m5.604 1.442a1.441 1.441 0 1 0 0-2.883a1.441 1.441 0 0 0 0 2.883m-7.046.778a2.336 2.336 0 0 0-2.303 1.947c-.035.212.143.388.358.388h3.891c.215 0 .393-.176.358-.388a2.336 2.336 0 0 0-2.304-1.947m4.743 1.947a2.336 2.336 0 0 1 4.607 0c.035.212-.143.388-.358.388H8.58c-.214 0-.392-.176-.357-.388ZM8.123 2.121a1.123 1.123 0 1 1-2.246 0a1.123 1.123 0 0 1 2.246 0M5.025 5.657a2.003 2.003 0 0 1 3.95 0c.03.182-.122.332-.306.332H5.33c-.184 0-.336-.15-.306-.332Z" clip-rule="evenodd"/>
 </svg>
 )
 const RoomsIcon = props => <Icon component={RoomsSvg} {...props} />
@@ -375,10 +376,25 @@ const siderStyle = {
   backgroundColor: '#f4f2ee'
 }
 const footerStyle = {
-  textAlign: 'center',
-  color: '#fff',
-  backgroundColor: '#4096ff'
+  display: 'flex',
+  flexWrap: 'wrap',
+  justifyContent: 'center',
+  listStyle: 'none',
+  padding: 0,
+  marginLeft: 25,
+  fontFamily: 'Arial, sans-serif',
+  fontSize: '12px',
+  color: '#62615f',
+  maxWidth: '500px',
+  lineHeight: '2.2',
+  width: 'calc(100% - 50px)'
 }
+const footerItemStyle = {
+    padding: '0 8px',
+    margin: '0px 0',
+    position: 'relative',
+    cursor: 'pointer',
+  }
 const layoutStyle = {
   borderRadius: 8,
   overflow: 'hidden',
@@ -402,32 +418,27 @@ const navItemStyle = {
   alignItems: 'center',
   padding: '0 8px'
 }
-
 const iconStyle = {
   fontSize: 24,
   color: '#666',
   transition: 'color 0.3s'
 }
-
 const homeStyle = {
   fontSize: 24,
   color: 'black',
   transition: 'color 0.3s'
 }
-
 const labelStyle = {
   fontSize: 12,
   lineHeight: '1.3',
   marginTop: 0
 }
-
 const activeLabelStyle = {
   fontSize: 12,
   lineHeight: '1.3',
   marginTop: 0,
   borderBottom: '2px solid black'
 }
-
 const LinkedInCard = ({
   name = 'First Last',
   role = 'I go to _ university',
@@ -523,9 +534,9 @@ const LinkedInCard = ({
     </Card>
   )
 }
-
 const LinkedInNewsCard = () => {
 return (
+  <div style={{ display: 'flex', flexDirection: 'column', gap: 10, justify: 'center' }}>
     <Card
         style={{
             width: 'auto',
@@ -538,7 +549,8 @@ return (
             paddingLeft: '15px',
             paddingTop: '8px ',
             paddingRight: 0,
-            marginRight: -3
+            marginRight: -3,
+            marginBottom: -10
         }}
     >
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -678,6 +690,28 @@ return (
         </Button>
         </div>
     </Card>
+    <ul style={footerStyle}>
+        <li className='home-foot' style={footerItemStyle}> About </li>
+        <li className='home-foot' style={footerItemStyle}> Accessibility </li>
+        <li className='home-foot' style={footerItemStyle}> Help Center </li>
+        <li className='home-foot' style={footerItemStyle}> Privacy & Terms <CaretDownOutlined/> </li>
+        <li className='home-foot' style={footerItemStyle}> Ad Choices </li>
+        <li className='home-foot' style={footerItemStyle}> Advertising </li>
+        <li className='home-foot' style={footerItemStyle}> Business Services <CaretDownOutlined/></li>
+        <li className='home-foot' style={footerItemStyle}> Get the LinkedIn app </li>
+        <li className='home-foot' style={footerItemStyle}> More </li>
+    </ul>
+      <div style={{ display: 'flex', justifyContent: 'center', alignContent: 'center', gap: 5, padding: '0px 0px', color: 'black', fontSize: 12, }}>
+            <>
+              <svg role="img" aria-hidden="false" aria-label="LinkedIn" class="global-footer-compact__linkedin-logo" xmlns="http://www.w3.org/2000/svg" width="56" height="14" viewBox="0 0 56 14" data-supported-dps="56x14" data-test-icon="linkedin-logo-blue-xxsmall">
+              <svg display="var(--hue-web-svg-display-light)">
+              <image href="https://static.licdn.com/aero-v1/sc/h/aahlc8ivbnmk0t3eyz8as5gvr" x="0" y="0" width="56" height="14"></image>
+              </svg>
+              </svg>
+            </>
+            <p style={{lineHeight: 1.2}}>LinkedIn Corporation © 2025</p>
+      </div>
+    </div>
 )};
 const LinkedInNavbar = () => {
   return (
@@ -765,10 +799,46 @@ const LinkedInNavbar = () => {
     </div>
   )
 }
-
-const LinkedInContent = () => {
+const LinkedInContentCard = ({
+  name = 'Cornell University',
+  followers = '688,885',
+  date = '2w',
+  comments = 10,
+  reposts = 15,
+  message = "Joy to all we love the best. From the Hill to your home, happy Valentine's Day, Cornellians.",
+  avatarUrl = "https://media.licdn.com/dms/image/v2/C560BAQE8SOXGRyv7LA/company-logo_100_100/company-logo_100_100/0/1631339899678?e=1749081600&v=beta&t=wRS0z-PL_Mm4v1bQm9dAxFc7f5ZPIRJ1HTXEXKSc8pM",
+  contentUrl = "https://media.licdn.com/dms/image/v2/D5610AQHrXgLOV0hhag/image-shrink_800/B56ZUGee18GsAg-/0/1739570409399?e=1741597200&v=beta&t=feVwHDya605j0w2-CiUovoakNJDqWbovOz4NVPC0VpI"}) => {
   return (
-    <Card
+  //   <Card
+  //   className={'content-card'}
+  //   style={{width: 'auto',
+  //       borderRadius: 8,
+  //       overflow: 'hidden',
+  //       boxShadow: '0 1px 2px rgba(0,0,0,0.15)',
+  //       fontWeight: 600,
+  //       }}
+  //   actions={[
+  //     <div  style={{display: 'flex', justifyContent: 'center', gap: 10, color: '#404040', marginLeft: 50}}> <MediaIcon/> <p style={{paddingTop:2}}>Media</p> </div>,
+  //     <div  style={{display: 'flex', justifyContent: 'center', gap: 10, color: '#404040'}}> <EventIcon/> <p style={{paddingTop:2}}>Event</p> </div>,
+  //     <div  style={{display: 'flex', justifyContent: 'center', gap: 10, color: '#404040', marginLeft: -30}}> <ArticleIcon/> <p style={{paddingTop:2}}>Write Article</p> </div>,
+  //   ]}
+  // >
+  //   <Meta
+  //     avatar={<Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=1" size={50} style={{ backgroundColor: '#e7e2dc', padding: 0, }}/>}
+  //     description=
+  //     <div>
+  //     <p style={{textAlign: 'left', color: 'black', fontWeight: 500}}>{message}</p>
+  //     <img src={contentUrl} alt="" style={{width: '100%', display: 'block', height: 'auto', borderRadius: 8, marginTop: 10}}/>
+  //     </div>
+  //   />
+  // </Card> 
+  void 0
+  )}
+const LinkedInContent = () => {
+  const navigate = useNavigate()
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 10, justify: 'center' }}>
+  <Card
     className={'linkedin-content'}
     style={{width: 'auto',
         borderRadius: 8,
@@ -777,18 +847,22 @@ const LinkedInContent = () => {
         fontWeight: 600,
         }}
     actions={[
-      <div className={'linked-action'} style={{display: 'flex', justifyContent: 'center', gap: 10, color: '#404040'}}> <MediaIcon/> <p style={{paddingTop:2}}>Media</p> </div>,
+      <div className={'linked-action'} style={{display: 'flex', justifyContent: 'center', gap: 10, color: '#404040', marginLeft: 50}}> <MediaIcon/> <p style={{paddingTop:2}}>Media</p> </div>,
       <div className={'linked-action'} style={{display: 'flex', justifyContent: 'center', gap: 10, color: '#404040'}}> <EventIcon/> <p style={{paddingTop:2}}>Event</p> </div>,
-      <div className={'linked-action'} style={{display: 'flex', justifyContent: 'center', gap: 10, color: '#404040'}}> <ArticleIcon/> <p style={{paddingTop:2}}>Write Article</p> </div>,
-      <div className={'linked-action'} style={{display: 'flex', justifyContent: 'center', gap: 10, color: '#404040'}}> <RoomsIcon/> <p style={{paddingTop:2}}>Open Room</p> </div>,
+      <div className={'linked-action'} style={{display: 'flex', justifyContent: 'center', gap: 10, color: '#404040', marginLeft: -30}}> <ArticleIcon/> <p style={{paddingTop:2}}>Write Article</p> </div>,
+      <Button type="text" onClick={() => navigate('/home')} className={'linked-action'} style={{display: 'flex', justifyContent: 'center', gap: 6, color: '#404040',  height: '44px', marginLeft: -5}}> <RoomsIcon/> <p style={{paddingTop:2}}>Open Room</p> </Button>,
     ]}
   >
     <Meta
       avatar={<Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=1" size={50} style={{ backgroundColor: '#e7e2dc', padding: 0 }}/>}
       description=<Button type="text" style={{border: 'solid 1px grey', borderRadius:'25px', fontWeight: 600, color: '#404040', width: '95%', height: 46, margin:'15px 0px 0px 0px', justifyContent: 'left'}}>Start a post</Button>
     />
-  </Card>  
+  </Card>
+  <LinkedInContentCard />
+</div>
 )}
+
+
 
 const LinkedInPage = () => (
   <Layout style={layoutStyle}>
@@ -895,8 +969,7 @@ const LinkedInPage = () => (
         </Sider>
       </Layout>
     </div>
-    <Footer style={footerStyle}>Footer</Footer>
+    
   </Layout>
 )
-
 export default LinkedInPage
