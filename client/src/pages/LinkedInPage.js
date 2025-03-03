@@ -367,7 +367,7 @@ const contentStyle = {
   maxWidth: '555px',
   lineHeight: '120px',
   color: '#fff',
-  backgroundColor: '#0958d9'
+  backgroundColor: '#f4f2ee'
 }
 const siderStyle = {
   lineHeight: '120px',
