@@ -373,7 +373,7 @@
  .linkedin-content .ant-card-actions {
   border: none;
   display: flex;
-  margin-left: 30px;
+  margin-left: 0px;
 }
 
 .linkedin-content .ant-card-meta-avatar {
