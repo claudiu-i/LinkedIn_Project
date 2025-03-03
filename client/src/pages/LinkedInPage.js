@@ -56,7 +56,7 @@ const NewsSvg = () => (
     <path d='M13 4v8H3V4h10m2-2H1v10c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V2zm-3 3H4v2h8V5zM7 8H4v3h3V8zm5 0H8v1h4V8zm0 2H8v1h4v-1z'></path>
   </svg>
 )
-const EventSvg = () => (
+const EventsSvg = () => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
     width='16'
@@ -301,6 +301,36 @@ const RightArrowSvg = () => (
   <path d="M5 15l4.61-7L5 1h2.39L12 8l-4.61 7z"></path>
   </svg>
 )
+const MediaSvg = () => (
+  <svg
+    xmlns='http://www.w3.org/2000/svg'
+    viewBox='0 0 24 24'
+    width='24'
+    height='24'
+    fill='#378fe9'
+  >
+    <path d="M19 4H5a3 3 0 00-3 3v10a3 3 0 003 3h14a3 3 0 003-3V7a3 3 0 00-3-3zm1 13a1 1 0 01-.29.71L16 14l-2 2-6-6-4 4V7a1 1 0 011-1h14a1 1 0 011 1zm-2-7a2 2 0 11-2-2 2 2 0 012 2z"></path>
+  </svg>
+)
+const EventSvg = () => (
+  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' fill='#c37d16'>
+    <path d="M3 3v15c0 1.66 1.34 3 3 3h12c1.66 0 3-1.34 3-3V3H3zm13 1.75a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zm-8 0a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zM19 18c0 .55-.45 1-1 1H6c-.55 0-1-.45-1-1V9h14v9zM7 11h2v2H7v-2zm0 4h2v2H7v-2zm4-4h2v2h-2v-2zm0 4h2v2h-2v-2zm4-4h2v2h-2v-2zm0 4h2v2h-2v-2z"></path>
+  </svg>
+)
+const ArticleSvg = () => (
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' fill='#e06847'>
+<path d="M21 3v2H3V3zm-6 6h6V7h-6zm0 4h6v-2h-6zm0 4h6v-2h-6zM3 21h18v-2H3zM13 7H3v10h10z"></path>
+</svg>
+)
+const RoomsSvg = () => (
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' fill='green'>
+{/* TODO */}
+</svg>
+)
+const RoomsIcon = props => <Icon component={RoomsSvg} {...props} />
+const ArticleIcon = props => <Icon component={ArticleSvg} {...props} />
+const EventIcon = props => <Icon component={EventSvg} {...props} />
+const MediaIcon = props => <Icon component={MediaSvg} {...props} />
 const RightArrowIcon = props => <Icon component={RightArrowSvg} {...props} />
 const PinPointIcon = props => <Icon component={PinPointSvg} {...props} />
 const QueenIcon = props => <Icon component={QueenSvg} {...props} />
@@ -309,7 +339,7 @@ const TangoIcon = props => <Icon component={TangoSvg} {...props} />
 const BookmarkIcon = props => <Icon component={BookmarkSvg} {...props} />
 const GroupIcon = props => <Icon component={GroupsSvg} {...props} />
 const NewsIcon = props => <Icon component={NewsSvg} {...props} />
-const EventIcon = props => <Icon component={EventSvg} {...props} />
+const EventsIcon = props => <Icon component={EventsSvg} {...props} />
 const HomeIcon = props => <Icon component={HomeSvg} {...props} />
 const NetworkIcon = props => <Icon component={NetworkSvg} {...props} />
 const JobsIcon = props => <Icon component={JobsSvg} {...props} />
@@ -432,7 +462,7 @@ const LinkedInCard = ({
               bottom: -36,
               left: 5,
               zIndex: 1,
-              border: '3px solid white',
+              border: '1px solid white',
               borderRadius: '50%',
               backgroundColor: '#f0f0f0'
             }}
@@ -440,7 +470,7 @@ const LinkedInCard = ({
             <Avatar
               size={72}
               src={avatarUrl}
-              style={{ backgroundColor: '#b0b0b0' }}
+              style={{ backgroundColor: '#e7e2dc',border: 'dashed',borderColor: '#9eb5ca', borderWidth: '2px', borderBottom: '0px' }}
             />
             <Button
               type='primary'
@@ -537,7 +567,7 @@ return (
                                 Amazon beefing up its Temu
                             </h3>
                             <p style={{color: '#655555'}}>
-                                5h ago • 4,566 readers
+                                3h ago • 4,566 readers
                             </p>
                         </div>
                 },
@@ -559,7 +589,7 @@ return (
                                 Inflation slowed in January
                             </h3>
                             <p style={{color: '#655555'}}>
-                                5h ago • 89,794 readers
+                                4h ago • 89,794 readers
                             </p>
                             </div>
                 },
@@ -570,7 +600,7 @@ return (
                             Outage takes down Microsoft Outlook
                             </h3>
                             <p style={{color: '#655555'}}>
-                                5h ago • 1,756 readers
+                                1h ago • 1,756 readers
                             </p>
                             </div>
                 },
@@ -592,7 +622,7 @@ return (
                             Microsoft to shut down Skype
                             </h3>
                             <p style={{color: '#655555'}}>
-                            5h ago • 237,097 readers
+                            2h ago • 237,097 readers
                             </p>
                             </div>
                 },
@@ -736,6 +766,30 @@ const LinkedInNavbar = () => {
   )
 }
 
+const LinkedInContent = () => {
+  return (
+    <Card
+    className={'linkedin-content'}
+    style={{width: 'auto',
+        borderRadius: 8,
+        overflow: 'hidden',
+        boxShadow: '0 1px 2px rgba(0,0,0,0.15)',
+        fontWeight: 600,
+        }}
+    actions={[
+      <div className={'linked-action'} style={{display: 'flex', justifyContent: 'center', gap: 10, color: '#404040'}}> <MediaIcon/> <p style={{paddingTop:2}}>Media</p> </div>,
+      <div className={'linked-action'} style={{display: 'flex', justifyContent: 'center', gap: 10, color: '#404040'}}> <EventIcon/> <p style={{paddingTop:2}}>Event</p> </div>,
+      <div className={'linked-action'} style={{display: 'flex', justifyContent: 'center', gap: 10, color: '#404040'}}> <ArticleIcon/> <p style={{paddingTop:2}}>Write Article</p> </div>,
+      <div className={'linked-action'} style={{display: 'flex', justifyContent: 'center', gap: 10, color: '#404040'}}> <RoomsIcon/> <p style={{paddingTop:2}}>Open Room</p> </div>,
+    ]}
+  >
+    <Meta
+      avatar={<Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=1" size={50} style={{ backgroundColor: '#e7e2dc', padding: 0 }}/>}
+      description=<Button type="text" style={{border: 'solid 1px grey', borderRadius:'25px', fontWeight: 600, color: '#404040', width: '95%', height: 46, margin:'15px 0px 0px 0px', justifyContent: 'left'}}>Start a post</Button>
+    />
+  </Card>  
+)}
+
 const LinkedInPage = () => (
   <Layout style={layoutStyle}>
     <Header style={headerStyle}>
@@ -825,7 +879,7 @@ const LinkedInPage = () => (
                   },
                   {
                     key: '4',
-                    icon: <EventIcon />,
+                    icon: <EventsIcon />,
                     label: 'Events'
                   }
                 ]}
@@ -834,7 +888,7 @@ const LinkedInPage = () => (
           </Flex>
         </Sider>
         <Content width='523px' style={contentStyle}>
-          Content
+          <LinkedInContent />
         </Content>
         <Sider width='300px' style={siderStyle}>
           <LinkedInNewsCard />

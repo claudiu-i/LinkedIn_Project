@@ -364,3 +364,36 @@
     display: flex;
     justify-content: flex-end;
   }
+
+  .linkedin-content .ant-card-actions > li {
+    border: none;
+    border-inline-end: 0px !important;
+ }
+
+ .linkedin-content .ant-card-actions {
+  border: none;
+  display: flex;
+  margin-left: 30px;
+}
+
+.linkedin-content .ant-card-meta-avatar {
+  padding: 0px;
+  margin-left: -10px;
+  margin-top: 10px;
+}
+
+.linkedin-content .ant-card-body {
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 10px;
+}
+
+.linked-action {
+  border-radius: 10px;
+  padding: 10px 0px;
+  width: 120px;
+
+}
+.linked-action:hover {
+  background-color: #f3f3f3;
+}
