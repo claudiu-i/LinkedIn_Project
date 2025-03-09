@@ -14,7 +14,7 @@ import {
   Tabs,
   Badge,
   Dropdown,
-  List
+  List,
 } from 'antd';
 import Icon, {
   PlusOutlined,
@@ -23,7 +23,11 @@ import Icon, {
   MoreOutlined, 
   EditOutlined, 
   CaretUpOutlined, 
+  VideoCameraOutlined,
 } from '@ant-design/icons';
+import { useCallContext, setModalTopPosition } from '../components/CallContext';
+
+
 const { Header, Sider, Content } = Layout
 const { Meta } = Card
 const { Title, Text } = Typography;
@@ -337,6 +341,11 @@ const RoomsSvg = () => (
 <path fill-rule="evenodd" d="M2.218 0C1.545 0 1 .545 1 1.218v4.57c0 .674.545 1.22 1.218 1.22h9.564c.673 0 1.218-.546 1.218-1.22v-4.57C13 .545 12.455 0 11.782 0zm2.703 9.441a1.441 1.441 0 1 1-2.883 0a1.441 1.441 0 0 1 2.883 0m5.604 1.442a1.441 1.441 0 1 0 0-2.883a1.441 1.441 0 0 0 0 2.883m-7.046.778a2.336 2.336 0 0 0-2.303 1.947c-.035.212.143.388.358.388h3.891c.215 0 .393-.176.358-.388a2.336 2.336 0 0 0-2.304-1.947m4.743 1.947a2.336 2.336 0 0 1 4.607 0c.035.212-.143.388-.358.388H8.58c-.214 0-.392-.176-.357-.388ZM8.123 2.121a1.123 1.123 0 1 1-2.246 0a1.123 1.123 0 0 1 2.246 0M5.025 5.657a2.003 2.003 0 0 1 3.95 0c.03.182-.122.332-.306.332H5.33c-.184 0-.336-.15-.306-.332Z" clip-rule="evenodd"/>
 </svg>
 )
+const SmallRoomsSvg = () => (
+  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' width='16' height='16' fill='current'>
+  <path fill-rule="evenodd" d="M2.218 0C1.545 0 1 .545 1 1.218v4.57c0 .674.545 1.22 1.218 1.22h9.564c.673 0 1.218-.546 1.218-1.22v-4.57C13 .545 12.455 0 11.782 0zm2.703 9.441a1.441 1.441 0 1 1-2.883 0a1.441 1.441 0 0 1 2.883 0m5.604 1.442a1.441 1.441 0 1 0 0-2.883a1.441 1.441 0 0 0 0 2.883m-7.046.778a2.336 2.336 0 0 0-2.303 1.947c-.035.212.143.388.358.388h3.891c.215 0 .393-.176.358-.388a2.336 2.336 0 0 0-2.304-1.947m4.743 1.947a2.336 2.336 0 0 1 4.607 0c.035.212-.143.388-.358.388H8.58c-.214 0-.392-.176-.357-.388ZM8.123 2.121a1.123 1.123 0 1 1-2.246 0a1.123 1.123 0 0 1 2.246 0M5.025 5.657a2.003 2.003 0 0 1 3.95 0c.03.182-.122.332-.306.332H5.33c-.184 0-.336-.15-.306-.332Z" clip-rule="evenodd"/>
+  </svg>
+  )
 const LikeSvg = () => (
 <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' width='16' height='16' fill='black'>
   <path d="M12.91 7l-2.25-2.57a8.21 8.21 0 01-1.5-2.55L9 1.37A2.08 2.08 0 007 0a2.08 2.08 0 00-2.06 2.08v1.17a5.81 5.81 0 00.31 1.89l.28.86H2.38A1.47 1.47 0 001 7.47a1.45 1.45 0 00.64 1.21 1.48 1.48 0 00-.37 2.06 1.54 1.54 0 00.62.51h.05a1.6 1.6 0 00-.19.71A1.47 1.47 0 003 13.42v.1A1.46 1.46 0 004.4 15h4.83a5.61 5.61 0 002.48-.58l1-.42H14V7zM12 12.11l-1.19.52a3.59 3.59 0 01-1.58.37H5.1a.55.55 0 01-.53-.4l-.14-.48-.49-.21a.56.56 0 01-.34-.6l.09-.56-.42-.42a.56.56 0 01-.09-.68L3.55 9l-.4-.61A.28.28 0 013.3 8h5L7.14 4.51a4.15 4.15 0 01-.2-1.26V2.08A.09.09 0 017 2a.11.11 0 01.08 0l.18.51a10 10 0 001.9 3.24l2.84 3z"></path>
@@ -362,6 +371,7 @@ const CommentIcon = props => <Icon component={CommentSvg} {...props} />
 const RepostIcon = props => <Icon component={RepostSvg} {...props} />
 const SendIcon = props => <Icon component={SendSvg} {...props} />
 const RoomsIcon = props => <Icon component={RoomsSvg} {...props} />
+const SmallRoomsIcon = props => <Icon component={SmallRoomsSvg} {...props} />
 const ArticleIcon = props => <Icon component={ArticleSvg} {...props} />
 const EventIcon = props => <Icon component={EventSvg} {...props} />
 const MediaIcon = props => <Icon component={MediaSvg} {...props} />
@@ -600,10 +610,9 @@ const messageData = [
     unread: false
   }
 ];
-const roomModal = () => {}
 
 const LinkedInMessaging = () => {
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
 
   // Function to toggle collapsible state
   const toggleCollapse = () => {
@@ -1075,7 +1084,7 @@ const LinkedInContentCard = ({
   </Card> 
   )}
 const LinkedInContent = () => {
-  const navigate = useNavigate()
+  const { openCallModal } = useCallContext();
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 10, justify: 'center' }}>
   <Card
@@ -1090,7 +1099,7 @@ const LinkedInContent = () => {
       <div className={'linked-action'} style={{display: 'flex', justifyContent: 'center', gap: 10, color: '#404040', marginLeft: 50}}> <MediaIcon/> <p style={{paddingTop:2}}>Media</p> </div>,
       <div className={'linked-action'} style={{display: 'flex', justifyContent: 'center', gap: 10, color: '#404040'}}> <EventIcon/> <p style={{paddingTop:2}}>Event</p> </div>,
       <div className={'linked-action'} style={{display: 'flex', justifyContent: 'center', gap: 10, color: '#404040', marginLeft: -30}}> <ArticleIcon/> <p style={{paddingTop:2}}>Write Article</p> </div>,
-      <Button type="text" onClick={() => navigate('/home')} className={'linked-action'} style={{display: 'flex', justifyContent: 'center', gap: 6, color: '#404040',  height: '44px', marginLeft: -5}}> <RoomsIcon/> <p style={{paddingTop:2}}>Open Room</p> </Button>,
+      <Button type="text" onClick={() => {setModalTopPosition(70); openCallModal()}} className={'linked-action'} style={{display: 'flex', justifyContent: 'center', gap: 6, color: '#404040',  height: '44px', marginLeft: -5}}> <RoomsIcon/> <p style={{paddingTop:2}}>Open Room</p> </Button>,
     ]}
   >
     <Meta
@@ -1118,7 +1127,12 @@ const LinkedInContent = () => {
   <LinkedInContentCard avatarUrl='https://media.licdn.com/dms/image/v2/D560BAQHpzXbqSyR74A/company-logo_200_200/B56ZT8EYB8HsAI-/0/1739395793272/openai_logo?e=1749686400&v=beta&t=JyxkDoEeYC7T_Toj9cG-YQhVJTNUGoBt_oAjIZXw4Nw' contentUrl="https://media.licdn.com/dms/image/v2/D5622AQFgVHIz_LqauA/feedshare-shrink_800/B56ZQduyjaGQAg-/0/1735665592947?e=1744243200&v=beta&t=IDbvBPloDv-ASCjQccRQPC0pVPllkYwilMkCs9HWeVY" message = <p>New year, new you. What goals are we crushing in 2025?</p> followers='6,628,187' date='2mo' name='OpenAI'/>
 </div>
 )}
-const LinkedInPage = () => (
+const LinkedInPage = () =>
+  { 
+    
+    const navigate = useNavigate();
+    
+    return (
   <Layout style={layoutStyle}>
     <Header style={headerStyle}>
       <LinkedInNavbar />
@@ -1209,6 +1223,12 @@ const LinkedInPage = () => (
                     key: '4',
                     icon: <EventsIcon />,
                     label: 'Events'
+                  },
+                  {
+                    key: '4',
+                    icon: <SmallRoomsIcon/>,
+                    label: 'Rooms',
+                    onClick: () => navigate('/home')
                   }
                 ]}
               />
@@ -1226,6 +1246,6 @@ const LinkedInPage = () => (
     <LinkedInMessaging/>
     
   </Layout>
-)
+);};
 
 export default LinkedInPage

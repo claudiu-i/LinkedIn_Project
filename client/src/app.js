@@ -8,16 +8,22 @@ import Room from './pages/Room';
 import CreateRoom from './pages/CreateRoom';
 import Profile from './pages/Profile';
 import LinkedInPage  from './pages/LinkedInPage';
+import { CallProvider } from './components/CallContext';
+import CallModal from './components/CallModal';
+import CallDashboard from './components/CallDashboard';
 
 function App() {
   return (
     <Router>
+    <CallProvider>
+        {/* The modal will be available throughout the app */}
+        <CallModal top={70} />
       <div className="app-container">
         <Routes>
           {/* Public routes */}
           <Route path="/" element={<LinkedInPage />} />
           {/* Protected routes */}
-          <Route path="/home" element={<Home />} />
+          <Route path="/home" element={<CallDashboard />} />
           <Route
             path="/room/:roomId"
             element={
@@ -40,6 +46,7 @@ function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
+      </CallProvider>
     </Router>
   );
 }
