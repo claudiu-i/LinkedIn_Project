@@ -16,7 +16,6 @@ import {
 import { 
   CloseOutlined, 
   ClockCircleOutlined, 
-  VideoCameraOutlined,
   CheckCircleFilled
 } from '@ant-design/icons';
 import { useCallContext } from './CallContext';

@@ -3,7 +3,6 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
 // Import pages
-import Home from './pages/Home';
 import Room from './pages/Room';
 import CreateRoom from './pages/CreateRoom';
 import Profile from './pages/Profile';

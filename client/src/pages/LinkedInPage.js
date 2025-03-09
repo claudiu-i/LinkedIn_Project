@@ -23,7 +23,6 @@ import Icon, {
   MoreOutlined, 
   EditOutlined, 
   CaretUpOutlined, 
-  VideoCameraOutlined,
 } from '@ant-design/icons';
 import { useCallContext, setModalTopPosition } from '../components/CallContext';
 
