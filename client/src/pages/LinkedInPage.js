@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import {
   Layout,
@@ -10,15 +10,24 @@ import {
   Flex,
   Menu,
   Input,
+  Affix,
+  Tabs,
+  Badge,
+  Dropdown,
+  List
 } from 'antd';
 import Icon, {
   PlusOutlined,
   SearchOutlined,
   CaretDownOutlined,
+  MoreOutlined, 
+  EditOutlined, 
+  CaretUpOutlined, 
 } from '@ant-design/icons';
 const { Header, Sider, Content } = Layout
 const { Meta } = Card
-const { Text } = Typography
+const { Title, Text } = Typography;
+const { TabPane } = Tabs;
 
 const BookmarkSvg = () => (
   <svg
@@ -328,6 +337,30 @@ const RoomsSvg = () => (
 <path fill-rule="evenodd" d="M2.218 0C1.545 0 1 .545 1 1.218v4.57c0 .674.545 1.22 1.218 1.22h9.564c.673 0 1.218-.546 1.218-1.22v-4.57C13 .545 12.455 0 11.782 0zm2.703 9.441a1.441 1.441 0 1 1-2.883 0a1.441 1.441 0 0 1 2.883 0m5.604 1.442a1.441 1.441 0 1 0 0-2.883a1.441 1.441 0 0 0 0 2.883m-7.046.778a2.336 2.336 0 0 0-2.303 1.947c-.035.212.143.388.358.388h3.891c.215 0 .393-.176.358-.388a2.336 2.336 0 0 0-2.304-1.947m4.743 1.947a2.336 2.336 0 0 1 4.607 0c.035.212-.143.388-.358.388H8.58c-.214 0-.392-.176-.357-.388ZM8.123 2.121a1.123 1.123 0 1 1-2.246 0a1.123 1.123 0 0 1 2.246 0M5.025 5.657a2.003 2.003 0 0 1 3.95 0c.03.182-.122.332-.306.332H5.33c-.184 0-.336-.15-.306-.332Z" clip-rule="evenodd"/>
 </svg>
 )
+const LikeSvg = () => (
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' width='16' height='16' fill='black'>
+  <path d="M12.91 7l-2.25-2.57a8.21 8.21 0 01-1.5-2.55L9 1.37A2.08 2.08 0 007 0a2.08 2.08 0 00-2.06 2.08v1.17a5.81 5.81 0 00.31 1.89l.28.86H2.38A1.47 1.47 0 001 7.47a1.45 1.45 0 00.64 1.21 1.48 1.48 0 00-.37 2.06 1.54 1.54 0 00.62.51h.05a1.6 1.6 0 00-.19.71A1.47 1.47 0 003 13.42v.1A1.46 1.46 0 004.4 15h4.83a5.61 5.61 0 002.48-.58l1-.42H14V7zM12 12.11l-1.19.52a3.59 3.59 0 01-1.58.37H5.1a.55.55 0 01-.53-.4l-.14-.48-.49-.21a.56.56 0 01-.34-.6l.09-.56-.42-.42a.56.56 0 01-.09-.68L3.55 9l-.4-.61A.28.28 0 013.3 8h5L7.14 4.51a4.15 4.15 0 01-.2-1.26V2.08A.09.09 0 017 2a.11.11 0 01.08 0l.18.51a10 10 0 001.9 3.24l2.84 3z"></path>
+</svg>
+)
+const CommentSvg = () => (
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' width='16' height='16' fill='black'>
+<path d="M5 8h5v1H5zm11-.5v.08a6 6 0 01-2.75 5L8 16v-3H5.5A5.51 5.51 0 010 7.5 5.62 5.62 0 015.74 2h4.76A5.5 5.5 0 0116 7.5zm-2 0A3.5 3.5 0 0010.5 4H5.74A3.62 3.62 0 002 7.5 3.53 3.53 0 005.5 11H10v1.33l2.17-1.39A4 4 0 0014 7.58zM5 7h6V6H5z"></path>
+</svg>
+)
+const RepostSvg = () => (
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' width='16' height='16' fill='black'>
+  <path d="M4 10H2V5c0-1.66 1.34-3 3-3h3.85L7.42 0h2.44L12 3 9.86 6H7.42l1.43-2H5c-.55 0-1 .45-1 1v5zm8-4v5c0 .55-.45 1-1 1H7.15l1.43-2H6.14L4 13l2.14 3h2.44l-1.43-2H11c1.66 0 3-1.34 3-3V6h-2z"></path>
+</svg>
+)
+const SendSvg = () => (
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' width='16' height='16' fill='black'>
+  <path d="M14 2L0 6.67l5 2.64 5.67-3.98L6.7 11l2.63 5L14 2z"></path>
+</svg>
+)
+const LikeIcon = props => <Icon component={LikeSvg} {...props} />
+const CommentIcon = props => <Icon component={CommentSvg} {...props} />
+const RepostIcon = props => <Icon component={RepostSvg} {...props} />
+const SendIcon = props => <Icon component={SendSvg} {...props} />
 const RoomsIcon = props => <Icon component={RoomsSvg} {...props} />
 const ArticleIcon = props => <Icon component={ArticleSvg} {...props} />
 const EventIcon = props => <Icon component={EventSvg} {...props} />
@@ -360,12 +393,16 @@ const headerStyle = {
   backgroundColor: '#ffffff',
   display: 'flex',
   alignItems: 'center',
-  boxShadow: '0 1px 2px rgba(0,0,0,0.1)'
+  boxShadow: '0 1px 2px rgba(0,0,0,0.1)',
+  width: '100%',
+  position: 'fixed',
+  zIndex: 99999
 }
 const contentStyle = {
   textAlign: 'center',
   minHeight: 120,
   maxWidth: '555px',
+  minWidth: '555px',
   lineHeight: '120px',
   color: '#fff',
   backgroundColor: '#f4f2ee'
@@ -410,7 +447,7 @@ const layoutCenterStyle = {
   backgroundColor: '#f4f2ee'
 }
 const divCenterStyle = {
-  margin: '1% 15%'
+  margin: 'calc(1% + 50px) 15%'
 }
 const navItemStyle = {
   display: 'flex',
@@ -440,11 +477,11 @@ const activeLabelStyle = {
   borderBottom: '2px solid black'
 }
 const LinkedInCard = ({
-  name = 'First Last',
+  name = 'John Smith',
   role = 'I go to _ university',
-  location = 'Location',
+  location = 'Ithaca, New York',
   university = 'University Name',
-  college = 'College Name',
+  college = 'College of Computing',
   avatarUrl = 'https://api.dicebear.com/7.x/miniavs/svg?seed=1',
   universityLogoUrl = 'https://www.cornell.edu/favicon.ico',
   coverImageUrl = 'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png'
@@ -505,14 +542,14 @@ const LinkedInCard = ({
           title={
             <Typography.Title
               level={5}
-              style={{ marginBottom: 0, fontSize: 18 }}
+              style={{ marginBottom: -5, fontSize: 18,paddingTop: 10 }}
             >
               {name}
             </Typography.Title>
           }
           description={
-            <Space direction='vertical' size={1} style={{ width: '100%' }}>
-              <Text style={{ color: '#000', fontSize: 11, fontWeight: 600 }}>
+            <Space direction='vertical' size={1} style={{ width: '100%'}}>
+              <Text style={{ color: '#000', fontSize: 14, fontWeight: 500, }}>
                 {role}
               </Text>
               <Text style={{ color: '#666', fontSize: 11 }}>{location}</Text>
@@ -523,7 +560,7 @@ const LinkedInCard = ({
                   src={universityLogoUrl}
                   style={{ backgroundColor: 'white' }}
                 />
-                <Text style={{ fontSize: 10, fontWeight: 600 }}>
+                <Text style={{ fontSize: 11, fontWeight: 600 }}>
                   {university} - {college}
                 </Text>
               </Space>
@@ -534,6 +571,201 @@ const LinkedInCard = ({
     </Card>
   )
 }
+const messageData = [
+  {
+    id: 1,
+    avatar: "https://media.licdn.com/dms/image/v2/C560BAQE8SOXGRyv7LA/company-logo_100_100/company-logo_100_100/0/1631339899678?e=1749081600&v=beta&t=wRS0z-PL_Mm4v1bQm9dAxFc7f5ZPIRJ1HTXEXKSc8pM",
+    name: 'Cornell...',
+    date: 'Mar 6',
+    message: 'Hi John, Are you looking to develop...',
+    sponsored: true,
+    unread: true
+  },
+  {
+    id: 2,
+    avatar: 'https://media.licdn.com/dms/image/v2/C560BAQHaVYd13rRz3A/company-logo_200_200/company-logo_200_200/0/1638831590218/linkedin_logo?e=1749686400&v=beta&t=25LnevZ6lI_onaAz6Gh6YEviMfOQNKJCYKrME5I7zko',
+    name: 'LinkedIn',
+    date: 'Feb 28',
+    message: 'LinkedIn Offer. Hi there, John! We\'ve recently seen an increase i...',
+    sponsored: true,
+    unread: false
+  },
+  {
+    id: 3,
+    avatar: "https://api.dicebear.com/7.x/miniavs/svg?seed=4",
+    name: 'James Joe',
+    date: 'Dec 24, 2024',
+    message: 'James Joe sent a post',
+    sponsored: false,
+    unread: false
+  }
+];
+const roomModal = () => {}
+
+const LinkedInMessaging = () => {
+  const [collapsed, setCollapsed] = useState(false);
+
+  // Function to toggle collapsible state
+  const toggleCollapse = () => {
+    setCollapsed(!collapsed);
+  };
+
+  // More options menu
+  const moreMenu = (
+    <Menu>
+      <Menu.Item key="1">Mark all as read</Menu.Item>
+      <Menu.Item key="2">Manage conversations</Menu.Item>
+      <Menu.Item key="3">Message settings</Menu.Item>
+    </Menu>
+  );
+
+  // Custom avatar component
+  const CustomAvatar = ({ src, name }) => {
+    if (src) {
+      return <Avatar src={src} size={40} />;
+    }
+    return (
+      <Avatar size={40} style={{ backgroundColor: '#ccc' }}>
+        {name ? name.charAt(0) : '?'}
+      </Avatar>
+    );
+  };
+
+  return (
+    <Card 
+      bodyStyle={{ padding: '0px' }}
+      className='messaging'
+      style={{ borderRadius: '8px', maxWidth: '360px', zIndex: 10,
+        height: collapsed ? 'inherit' : '90%', position: 'fixed', right: 5, bottom: 0
+       }}
+    >
+      {/* Header section */}
+      <div style={{
+        display: 'flex',
+        padding: '12px 16px',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        borderBottom: collapsed ? 'none' : '1px solid #f0f0f0',
+      }}>
+        <Space align="center">
+        <Avatar
+              size={40}
+              src={'https://api.dicebear.com/7.x/miniavs/svg?seed=1'}
+            />
+          <Title level={5} style={{ margin: 0 }}>Messaging</Title>
+        </Space>
+        
+        <Space>
+          <Dropdown overlay={moreMenu} trigger={['click']}>
+            <Button 
+              type="text" 
+              icon={<MoreOutlined />} 
+              style={{ border: 'none' }}
+            />
+          </Dropdown>
+          <Button 
+            type="text" 
+            icon={<EditOutlined />} 
+            style={{ border: 'none' }}
+          />
+          <Button
+            type="text"
+            icon={collapsed ? <CaretUpOutlined /> : <CaretDownOutlined />}
+            onClick={toggleCollapse}
+            style={{ border: 'none' }}
+          />
+        </Space>
+      </div>
+
+      {/* Collapsible content */}
+      <div style={{
+        height: collapsed ? '0' : '90%',
+        overflow: 'hidden',
+      }}>
+          {/* Search bar */}
+          <div style={{ padding: '12px 16px' }}>
+            <Input
+              placeholder="Search messages"
+              prefix={<SearchOutlined style={{ color: '#bfbfbf' }} />}
+              style={{ borderRadius: '4px' }}
+              suffix={
+                <Button 
+                  type="text" 
+                  style={{ border: 'none', padding: '0' }}
+                  icon={<span style={{ fontSize: '16px' }}>≡</span>} 
+                />
+              }
+            />
+          </div>
+
+          {/* Tabs */}
+          <Tabs defaultActiveKey="1" centered>
+            <TabPane 
+              tab={<div style={{ paddingBottom: '0px' }}>Focused</div>} 
+              key="1"
+            >
+              <List
+                itemLayout="horizontal"
+                dataSource={messageData}
+                renderItem={item => (
+                  <List.Item 
+                    style={{ 
+                      padding: '12px 16px', 
+                      cursor: 'pointer',
+                      backgroundColor: item.unread ? '#f3f9ff' : 'transparent',
+                      borderLeft: item.unread ? '4px solid #0a66c2' : 'none',
+                      paddingLeft: item.unread ? '12px' : '16px'
+                    }}
+                    onClick={() => console.log(`Clicked on message from ${item.name}`)}
+                  >
+                    <List.Item.Meta
+                      avatar={<CustomAvatar src={item.avatar} name={item.name} />}
+                      title={
+                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                          <Space>
+                            <Text strong>{item.name}</Text>
+                            {item.sponsored && (
+                              <Text type="secondary" style={{ fontSize: '12px' }}>Sponsored</Text>
+                            )}
+                            {item.via && (
+                              <Text type="secondary" style={{ fontSize: '12px' }}>via {item.via}</Text>
+                            )}
+                          </Space>
+                          <Text type="secondary" style={{ fontSize: '12px' }}>{item.date}</Text>
+                        </div>
+                      }
+                      description={
+                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                          <Text 
+                            style={{ 
+                              color: item.unread ? 'rgba(0, 0, 0, 0.85)' : 'rgba(0, 0, 0, 0.45)',
+                              fontWeight: item.unread ? '500' : 'normal'
+                            }}
+                            ellipsis={{ rows: 1 }}
+                          >
+                            {item.message}
+                          </Text>
+                          {item.unread && (
+                            <Badge dot style={{ backgroundColor: '#0a66c2' }} />
+                          )}
+                        </div>
+                      }
+                    />
+                  </List.Item>
+                )}
+              />
+            </TabPane>
+            <TabPane tab="Other" key="2">
+              {/* Content for "Other" tab */}
+              <div style={{ padding: '16px', textAlign: 'center' }}>
+                <Text type="secondary">No messages in Other</Text>
+              </div>
+            </TabPane>
+          </Tabs>
+        </div>
+    </Card>
+  );
+};
 const LinkedInNewsCard = () => {
 return (
   <div style={{ display: 'flex', flexDirection: 'column', gap: 10, justify: 'center' }}>
@@ -690,6 +922,7 @@ return (
         </Button>
         </div>
     </Card>
+    <Affix offsetTop={80}>
     <ul style={footerStyle}>
         <li className='home-foot' style={footerItemStyle}> About </li>
         <li className='home-foot' style={footerItemStyle}> Accessibility </li>
@@ -701,7 +934,7 @@ return (
         <li className='home-foot' style={footerItemStyle}> Get the LinkedIn app </li>
         <li className='home-foot' style={footerItemStyle}> More </li>
     </ul>
-      <div style={{ display: 'flex', justifyContent: 'center', alignContent: 'center', gap: 5, padding: '0px 0px', color: 'black', fontSize: 12, }}>
+      <div style={{ display: 'flex', justifyContent: 'center', alignContent: 'center', gap: 5, padding: '15px 0px', color: 'black', fontSize: 12, }}>
             <>
               <svg role="img" aria-hidden="false" aria-label="LinkedIn" class="global-footer-compact__linkedin-logo" xmlns="http://www.w3.org/2000/svg" width="56" height="14" viewBox="0 0 56 14" data-supported-dps="56x14" data-test-icon="linkedin-logo-blue-xxsmall">
               <svg display="var(--hue-web-svg-display-light)">
@@ -711,6 +944,7 @@ return (
             </>
             <p style={{lineHeight: 1.2}}>LinkedIn Corporation © 2025</p>
       </div>
+      </Affix>
     </div>
 )};
 const LinkedInNavbar = () => {
@@ -803,36 +1037,42 @@ const LinkedInContentCard = ({
   name = 'Cornell University',
   followers = '688,885',
   date = '2w',
-  comments = 10,
-  reposts = 15,
+  comments = Math.floor(Math.random() * 999),
+  reposts = Math.floor(Math.random() * 300),
   message = "Joy to all we love the best. From the Hill to your home, happy Valentine's Day, Cornellians.",
   avatarUrl = "https://media.licdn.com/dms/image/v2/C560BAQE8SOXGRyv7LA/company-logo_100_100/company-logo_100_100/0/1631339899678?e=1749081600&v=beta&t=wRS0z-PL_Mm4v1bQm9dAxFc7f5ZPIRJ1HTXEXKSc8pM",
   contentUrl = "https://media.licdn.com/dms/image/v2/D5610AQHrXgLOV0hhag/image-shrink_800/B56ZUGee18GsAg-/0/1739570409399?e=1741597200&v=beta&t=feVwHDya605j0w2-CiUovoakNJDqWbovOz4NVPC0VpI"}) => {
   return (
-  //   <Card
-  //   className={'content-card'}
-  //   style={{width: 'auto',
-  //       borderRadius: 8,
-  //       overflow: 'hidden',
-  //       boxShadow: '0 1px 2px rgba(0,0,0,0.15)',
-  //       fontWeight: 600,
-  //       }}
-  //   actions={[
-  //     <div  style={{display: 'flex', justifyContent: 'center', gap: 10, color: '#404040', marginLeft: 50}}> <MediaIcon/> <p style={{paddingTop:2}}>Media</p> </div>,
-  //     <div  style={{display: 'flex', justifyContent: 'center', gap: 10, color: '#404040'}}> <EventIcon/> <p style={{paddingTop:2}}>Event</p> </div>,
-  //     <div  style={{display: 'flex', justifyContent: 'center', gap: 10, color: '#404040', marginLeft: -30}}> <ArticleIcon/> <p style={{paddingTop:2}}>Write Article</p> </div>,
-  //   ]}
-  // >
-  //   <Meta
-  //     avatar={<Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=1" size={50} style={{ backgroundColor: '#e7e2dc', padding: 0, }}/>}
-  //     description=
-  //     <div>
-  //     <p style={{textAlign: 'left', color: 'black', fontWeight: 500}}>{message}</p>
-  //     <img src={contentUrl} alt="" style={{width: '100%', display: 'block', height: 'auto', borderRadius: 8, marginTop: 10}}/>
-  //     </div>
-  //   />
-  // </Card> 
-  void 0
+    <Card
+    className={'content-card'}
+    style={{width: 'auto',
+        borderRadius: 8,
+        overflow: 'hidden',
+        boxShadow: '0 1px 2px rgba(0,0,0,0.15)',
+        fontWeight: 600,
+        }}
+    actions={[
+      <div className={'linked-action'} style={{display: 'flex', justifyContent: 'center', gap: 5, color: '#404040', }}> <LikeIcon/> <p style={{paddingTop:0}}>Like</p> </div>,
+      <div className={'linked-action'} style={{display: 'flex', justifyContent: 'center', gap: 5, color: '#404040'}}> <CommentIcon/> <p style={{paddingTop:0}}>Comment</p> </div>,
+      <div className={'linked-action'} style={{display: 'flex', justifyContent: 'center', gap: 5, color: '#404040', }}> <RepostIcon/> <p style={{paddingTop:0}}>Repost</p> </div>,
+      <div className={'linked-action'} style={{display: 'flex', justifyContent: 'center', gap: 5, color: '#404040', }}> <SendIcon/> <p style={{paddingTop:0}}>Send</p> </div>,
+    ]}
+  >
+    <Meta
+      avatar={<a href="##"><Avatar src={avatarUrl} size={50} style={{ postion: 'relative', top: -5, left:15, backgroundColor: '#e7e2dc', padding: 0, }}/></a>}
+      description=
+      <div style={{textAlign: 'left', display: 'flex', flexDirection: 'column', color: 'black', position: 'relative', top: -8, left:30, fontSize: 16}}>
+        <a href="##" className={'content-name'}>{name}</a>
+        <p style={{fontSize: 12, color: '#666666', fontWeight: 500}} className='hoverable'>{followers} followers</p>
+        <p style={{fontSize: 12, color: '#666666', fontWeight: 500}}>{date} • <svg style={{position: 'relative', top: 3}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16" fill="currentColor" class="mercado-match" width="16" height="16" focusable="false">
+        <path d="M8 1a7 7 0 107 7 7 7 0 00-7-7zM3 8a5 5 0 011-3l.55.55A1.5 1.5 0 015 6.62v1.07a.75.75 0 00.22.53l.56.56a.75.75 0 00.53.22H7v.69a.75.75 0 00.22.53l.56.56a.75.75 0 01.22.53V13a5 5 0 01-5-5zm6.24 4.83l2-2.46a.75.75 0 00.09-.8l-.58-1.16A.76.76 0 0010 8H7v-.19a.51.51 0 01.28-.45l.38-.19a.74.74 0 01.68 0L9 7.5l.38-.7a1 1 0 00.12-.48v-.85a.78.78 0 01.21-.53l1.07-1.09a5 5 0 01-1.54 9z"></path></svg></p>
+      </div>
+    />
+    <p className={'content-text'} style={{marginLeft: 20, textAlign: 'left', color: 'black', fontWeight: 500}}>{message}</p>
+
+    <a href="##"><img src={contentUrl} alt="" /></a>
+    <p style={{position: 'absolute', textAlign: 'left', bottom: 75, right: 15, color: '#666666', fontSize: 13, fontWeight: 500}}><a href='##' className='fake-link' style={{color: '#666666'}}>{comments} comments</a> • <a href='##' className='fake-link' style={{color: '#666666'}}>{reposts} reposts</a></p>
+  </Card> 
   )}
 const LinkedInContent = () => {
   const navigate = useNavigate()
@@ -858,12 +1098,26 @@ const LinkedInContent = () => {
       description=<Button type="text" style={{border: 'solid 1px grey', borderRadius:'25px', fontWeight: 600, color: '#404040', width: '95%', height: 46, margin:'15px 0px 0px 0px', justifyContent: 'left'}}>Start a post</Button>
     />
   </Card>
+
+  <LinkedInContentCard avatarUrl='https://media.licdn.com/dms/image/v2/C4D0BAQGRhsociEn4gQ/company-logo_200_200/company-logo_200_200/0/1631367875582?e=1749686400&v=beta&t=K48GH_goxDtqBIWPOceNWDCWgzL1jLap2X4MO0ebmkM' contentUrl="https://media.licdn.com/dms/image/v2/D4E22AQHWNtY5CQvocA/feedshare-shrink_800/B4EZSzlpyMG0Ag-/0/1738179780929?e=1744243200&v=beta&t=e2wz6eXGy3mGl9i64f2NeJdTqUTB3ZENJ4JfXiiYN3k" message = <p>We are proud to be ranked No. 10 on Fortune World's Most Admired Companies™ 2025 list, American Express's third consecutive year receiving a Top 10 recognition. <br /><br />The award recognizes Amex's commitment to delivering exceptional products, services, and experiences for customers and communities — and the work and achievements of the company's colleagues around the world. <br /><br />Read more: <a href='##' className='fake-link'>https://go.amex/qHF4sj</a></p> followers='2,496,518' date='1mo' name='American Express'/>
+  
+  <LinkedInContentCard avatarUrl='https://media.licdn.com/dms/image/v2/D4E0BAQFMhKgeR7EYAg/company-logo_100_100/company-logo_100_100/0/1719256989269/anthropicresearch_logo?e=1749686400&v=beta&t=rh_3QgrUGmRTh-lk5Lelat7o9wp1ysTH4asI-L4HXMk' contentUrl="https://media.licdn.com/dms/image/v2/D4E22AQHqnYzO3OD-PQ/feedshare-shrink_800/B4EZVsb119HcAg-/0/1741280993388?e=1744243200&v=beta&t=Wfii3j3tbCiB2kP1aIX7jL7EKZINSC4k1GpzfvxAip0" message = <p>We've overhauled the Anthropic Console to serve as one place to build, test, and iterate on prompts with Claude.
+  <br/><br/>
+  And now you can share prompts with your teammates, too.
+  <br/><br/>
+  We've also added support for our latest model, Claude 3.7 Sonnet, and the ability to control the extended thinking budget—right from the Workbench. 
+  <br/><br/>
+  Read more: <a href="##">https://lnkd.in/ePNCEsXY</a></p> followers='785,329' date='3d' name='Anthropic'/>
+
   <LinkedInContentCard />
+
+  <LinkedInContentCard avatarUrl='https://media.licdn.com/dms/image/v2/C4E0BAQGkvD12zxajlA/company-logo_100_100/company-logo_100_100/0/1679328143343/cornell_university_college_of_computing_and_information_science_logo?e=1749686400&v=beta&t=U65jSqNR5UEGZb0nlUWd4Hlr3B6VmMlQHDw88IQ0ugw' contentUrl='https://media.licdn.com/dms/image/v2/D5622AQEpDYyRZL0Vgg/feedshare-shrink_800/B56ZU9x6FaHoAo-/0/1740498249061?e=1744243200&v=beta&t=fM7ScmRfHcwkKo93AEfIfulYXoHHMj-uJ-llp_UaCDI' message = 'Cornell Bowers is seeking a Senior Research Administrator who will manage a designated portfolio of Bowers PI sponsored awards, oversee sponsor reporting, develop complex financial reports, and support central and unit financial management and reporting.' name='Cornell Ann S. Bowers College of Computing and Information Science' followers='2,951' date='1w' />
+  
+  <LinkedInContentCard avatarUrl='https://media.licdn.com/dms/image/v2/C4D0BAQHiNSL4Or29cg/company-logo_100_100/company-logo_100_100/0/1631311446380?e=1749686400&v=beta&t=Gwp7TJ03ucl_lSWXsdG8lCgHnVoQKbH4_zMgayw38XQ' contentUrl="https://media.licdn.com/dms/image/v2/D5610AQGX7h3yUYLqfQ/image-shrink_800/B56ZUBkWJGHoAg-/0/1739488060932?e=1742090400&v=beta&t=BOxF3CnA2eE_PRYqiAdm6brvNAyB1mPUfuFNo8dnLa8" message = <p>Join our dynamic marketing team! We're seeking talented individuals for roles in Product Marketing, YouTube Marketing, Digital Marketing and more. Contribute to innovative campaigns and work with cutting-edge tech. → <a href='##'>https://goo.gle/40HLscN</a></p> followers='36,449,414' date='1w' name='Google'/>
+  
+  <LinkedInContentCard avatarUrl='https://media.licdn.com/dms/image/v2/D560BAQHpzXbqSyR74A/company-logo_200_200/B56ZT8EYB8HsAI-/0/1739395793272/openai_logo?e=1749686400&v=beta&t=JyxkDoEeYC7T_Toj9cG-YQhVJTNUGoBt_oAjIZXw4Nw' contentUrl="https://media.licdn.com/dms/image/v2/D5622AQFgVHIz_LqauA/feedshare-shrink_800/B56ZQduyjaGQAg-/0/1735665592947?e=1744243200&v=beta&t=IDbvBPloDv-ASCjQccRQPC0pVPllkYwilMkCs9HWeVY" message = <p>New year, new you. What goals are we crushing in 2025?</p> followers='6,628,187' date='2mo' name='OpenAI'/>
 </div>
 )}
-
-
-
 const LinkedInPage = () => (
   <Layout style={layoutStyle}>
     <Header style={headerStyle}>
@@ -969,7 +1223,9 @@ const LinkedInPage = () => (
         </Sider>
       </Layout>
     </div>
+    <LinkedInMessaging/>
     
   </Layout>
 )
+
 export default LinkedInPage
