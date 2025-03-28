@@ -8,27 +8,27 @@ const API_URL = process.env.REACT_APP_API_URL;
 const Room = () => {
   const { roomId } = useParams();
   const navigate = useNavigate();
-  
+
   const [room, setRoom] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [accessCode, setAccessCode] = useState('');
-  
+
   // Audio/Video state
   const [audioEnabled, setAudioEnabled] = useState(false);
   const [videoEnabled, setVideoEnabled] = useState(false);
   const [screenShareEnabled, setScreenShareEnabled] = useState(false);
-  
+
   useEffect(() => {
     const fetchRoom = async () => {
       try {
-        setLoading(true);        
+        setLoading(true);
         const response = await axios.get(`${API_URL}/rooms/${roomId}`, {
           headers: {
             Authorization: `Bearer`
           }
         });
-        
+
         setRoom(response.data.data);
         setLoading(false);
       } catch (err) {
@@ -37,9 +37,9 @@ const Room = () => {
         setLoading(false);
       }
     };
-      fetchRoom();
+    fetchRoom();
   }, [roomId]);
-  
+
   const handleJoinRoom = async () => {
     try {
       // Refetch room data after joining
@@ -48,14 +48,14 @@ const Room = () => {
           Authorization: `Bearer`
         }
       });
-      
+
       setRoom(response.data.data);
     } catch (err) {
       console.error('Error joining room:', err);
       setError('Failed to join room. Please check your access code and try again.');
     }
   };
-  
+
   const handleLeaveRoom = async () => {
     try {
       navigate('/');
@@ -64,24 +64,24 @@ const Room = () => {
       setError('Failed to leave room');
     }
   };
-  
+
   // Simulate toggling audio/video for demo
   const toggleAudio = () => setAudioEnabled(!audioEnabled);
   const toggleVideo = () => setVideoEnabled(!videoEnabled);
   const toggleScreenShare = () => setScreenShareEnabled(!screenShareEnabled);
-  
+
   if (loading) {
     return <div className="loading">Loading room...</div>;
   }
-  
+
   if (error) {
     return <div className="error">{error}</div>;
   }
-  
+
   if (!room) {
     return <div className="error">Room not found</div>;
   }
-  
+
   // Check if room is private and user needs to enter access code
   if (room.isPrivate) {
     return (
@@ -97,8 +97,8 @@ const Room = () => {
               placeholder="Access Code"
               style={{ width: '100%', padding: '10px', marginBottom: '10px' }}
             />
-            <button 
-              className="button primary" 
+            <button
+              className="button primary"
               style={{ width: '100%' }}
               onClick={handleJoinRoom}
             >
@@ -109,17 +109,17 @@ const Room = () => {
       </div>
     );
   }
-  
+
   // Demo video grid (no actual WebRTC for the minimal MVP)
   return (
     <div className="room-container">
       <div className="video-grid">
         {/* Your video */}
         <div className="video-tile">
-          <div style={{ 
-            position: 'absolute', 
-            bottom: '10px', 
-            left: '10px', 
+          <div style={{
+            position: 'absolute',
+            bottom: '10px',
+            left: '10px',
             color: 'white',
             backgroundColor: 'rgba(0,0,0,0.5)',
             padding: '5px',
@@ -128,7 +128,7 @@ const Room = () => {
             You (Host)
           </div>
         </div>
-        
+
         {/* Other participants would appear here */}
         <div className="video-tile" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <div style={{ color: 'white', textAlign: 'center' }}>
@@ -137,30 +137,30 @@ const Room = () => {
           </div>
         </div>
       </div>
-      
+
       <div className="video-controls">
-        <button 
+        <button
           className={`control-button ${audioEnabled ? 'active' : ''}`}
           onClick={toggleAudio}
         >
           {audioEnabled ? 'Mute' : 'Unmute'}
         </button>
-        
-        <button 
+
+        <button
           className={`control-button ${videoEnabled ? 'active' : ''}`}
           onClick={toggleVideo}
         >
           {videoEnabled ? 'Hide Video' : 'Show Video'}
         </button>
-        
-        <button 
+
+        <button
           className={`control-button ${screenShareEnabled ? 'active' : ''}`}
           onClick={toggleScreenShare}
         >
           {screenShareEnabled ? 'Stop Sharing' : 'Share Screen'}
         </button>
-        
-        <button 
+
+        <button
           className="control-button danger"
           onClick={handleLeaveRoom}
         >
