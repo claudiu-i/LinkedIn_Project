@@ -9,11 +9,10 @@
 
 .room-header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background-color: #0073b1;
-  color: white;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    margin-bottom: 40px;
 }
 
 .room-title {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Mic, MicOff, Video, VideoOff, Monitor, X } from 'lucide-react';
 import './Room.css';
 
@@ -39,6 +39,7 @@ const Room = () => {
         displayStreamRef.current.getTracks().forEach(track => track.stop());
       }
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const toggleMute = () => {
@@ -140,15 +141,15 @@ const Room = () => {
     setIsPresenting(!isPresenting);
   };
 
-  const navigate = useNavigate();
-
   return (
-    <div className="room-page">
+    <div className="room-page call-container">
       <header className="room-header">
-        <h1 className="room-title">Video Room</h1>
-        <button className="leave-button" onClick={() => navigate('/home')}>
-          Leave Room
-        </button>
+        <div className="logo">
+          <h1>LinkedIn Room</h1>
+        </div>
+        <nav>
+            <Link to="/home" className="button" style={{background: 'rgb(231, 25, 63', color: 'white'}}>Leave Room</Link>
+        </nav>
       </header>
 
       <main className="room-main">
