@@ -1,172 +1,221 @@
-// src/pages/Room.js
-import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios';
-
-const API_URL = process.env.REACT_APP_API_URL;
+import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Mic, MicOff, Video, VideoOff, Monitor, X } from 'lucide-react';
+import './Room.css';
 
 const Room = () => {
-  const { roomId } = useParams();
-  const navigate = useNavigate();
+  const [isMuted, setIsMuted] = useState(false);
+  const [isCameraOn, setIsCameraOn] = useState(true);
+  const [isPresenting, setIsPresenting] = useState(false);
+  const videoRef = useRef(null);
+  const streamRef = useRef(null);
+  const displayStreamRef = useRef(null);
 
-  const [room, setRoom] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [accessCode, setAccessCode] = useState('');
-
-  // Audio/Video state
-  const [audioEnabled, setAudioEnabled] = useState(false);
-  const [videoEnabled, setVideoEnabled] = useState(false);
-  const [screenShareEnabled, setScreenShareEnabled] = useState(false);
+  const setupMedia = async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: true,
+        audio: true
+      });
+      streamRef.current = stream;
+      if (videoRef.current) {
+        videoRef.current.srcObject = stream;
+      }
+      stream.getAudioTracks().forEach(track => {
+        track.enabled = !isMuted;
+      });
+    } catch (error) {
+      console.error("Error accessing media devices:", error);
+    }
+  };
 
   useEffect(() => {
-    const fetchRoom = async () => {
-      try {
-        setLoading(true);
-        const response = await axios.get(`${API_URL}/rooms/${roomId}`, {
-          headers: {
-            Authorization: `Bearer`
-          }
-        });
-
-        setRoom(response.data.data);
-        setLoading(false);
-      } catch (err) {
-        console.error('Error fetching room:', err);
-        setError('Failed to load room details');
-        setLoading(false);
+    setupMedia();
+    return () => {
+      if (streamRef.current) {
+        streamRef.current.getTracks().forEach(track => track.stop());
+      }
+      if (displayStreamRef.current) {
+        displayStreamRef.current.getTracks().forEach(track => track.stop());
       }
     };
-    fetchRoom();
-  }, [roomId]);
+  }, []);
 
-  const handleJoinRoom = async () => {
-    try {
-      // Refetch room data after joining
-      const response = await axios.get(`${API_URL}/rooms/${roomId}`, {
-        headers: {
-          Authorization: `Bearer`
-        }
+  const toggleMute = () => {
+    if (streamRef.current) {
+      streamRef.current.getAudioTracks().forEach(track => {
+        track.enabled = isMuted;
       });
-
-      setRoom(response.data.data);
-    } catch (err) {
-      console.error('Error joining room:', err);
-      setError('Failed to join room. Please check your access code and try again.');
+      setIsMuted(!isMuted);
     }
   };
 
-  const handleLeaveRoom = async () => {
-    try {
-      navigate('/');
-    } catch (err) {
-      console.error('Error leaving room:', err);
-      setError('Failed to leave room');
+  const toggleCamera = () => {
+    if (streamRef.current) {
+      const videoTracks = streamRef.current.getVideoTracks();
+      
+      if (isCameraOn) {
+        // Turning camera off
+        videoTracks.forEach(track => {
+          track.enabled = false;
+        });
+      } else {
+        setupMedia();
+        // Turning camera on
+        videoTracks.forEach(track => {
+          track.enabled = true;
+        });
+        
+        // If video is still not working, try to restart the camera
+        if (videoTracks.length > 0 && !videoTracks[0].enabled) {
+          // Force camera restart
+          const restartCamera = async () => {
+            try {
+              const newStream = await navigator.mediaDevices.getUserMedia({
+                video: true,
+                audio: streamRef.current.getAudioTracks().length > 0
+              });
+              
+              // Replace only the video tracks
+              const audioTracks = streamRef.current.getAudioTracks();
+              audioTracks.forEach(track => {
+                newStream.addTrack(track);
+              });
+              
+              streamRef.current.getVideoTracks().forEach(track => {
+                track.stop();
+                streamRef.current.removeTrack(track);
+              });
+              
+              newStream.getVideoTracks().forEach(track => {
+                streamRef.current.addTrack(track);
+              });
+              
+              if (videoRef.current) {
+                videoRef.current.srcObject = streamRef.current;
+              }
+            } catch (error) {
+              console.error("Error restarting camera:", error);
+            }
+          };
+          
+          restartCamera();
+        }
+      }
+      
+      setIsCameraOn(!isCameraOn);
     }
   };
 
-  // Simulate toggling audio/video for demo
-  const toggleAudio = () => setAudioEnabled(!audioEnabled);
-  const toggleVideo = () => setVideoEnabled(!videoEnabled);
-  const toggleScreenShare = () => setScreenShareEnabled(!screenShareEnabled);
+  const startPresenting = async () => {
+    if (isPresenting) {
+      if (displayStreamRef.current) {
+        displayStreamRef.current.getTracks().forEach(track => track.stop());
+        displayStreamRef.current = null;
+      }
+      if (videoRef.current && streamRef.current) {
+        videoRef.current.srcObject = streamRef.current;
+      }
+    } else {
+      try {
+        const displayStream = await navigator.mediaDevices.getDisplayMedia({
+          video: true,
+          audio: true
+        });
+        displayStreamRef.current = displayStream;
+        if (videoRef.current) {
+          videoRef.current.srcObject = displayStream;
+        }
+        displayStream.getVideoTracks()[0].onended = () => {
+          setIsPresenting(false);
+          if (videoRef.current && streamRef.current) {
+            videoRef.current.srcObject = streamRef.current;
+          }
+        };
+      } catch (error) {
+        console.error("Error starting screen share:", error);
+        return;
+      }
+    }
+    setIsPresenting(!isPresenting);
+  };
 
-  if (loading) {
-    return <div className="loading">Loading room...</div>;
-  }
+  const navigate = useNavigate();
 
-  if (error) {
-    return <div className="error">{error}</div>;
-  }
-
-  if (!room) {
-    return <div className="error">Room not found</div>;
-  }
-
-  // Check if room is private and user needs to enter access code
-  if (room.isPrivate) {
-    return (
-      <div className="container">
-        <div className="auth-container">
-          <h2>{room.name}</h2>
-          <p>This is a private room. Please enter the access code to join.</p>
-          <div style={{ margin: '20px 0' }}>
-            <input
-              type="text"
-              value={accessCode}
-              onChange={(e) => setAccessCode(e.target.value)}
-              placeholder="Access Code"
-              style={{ width: '100%', padding: '10px', marginBottom: '10px' }}
-            />
-            <button
-              className="button primary"
-              style={{ width: '100%' }}
-              onClick={handleJoinRoom}
-            >
-              Join Room
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  // Demo video grid (no actual WebRTC for the minimal MVP)
   return (
-    <div className="room-container">
-      <div className="video-grid">
-        {/* Your video */}
-        <div className="video-tile">
-          <div style={{
-            position: 'absolute',
-            bottom: '10px',
-            left: '10px',
-            color: 'white',
-            backgroundColor: 'rgba(0,0,0,0.5)',
-            padding: '5px',
-            borderRadius: '4px'
-          }}>
-            You (Host)
+    <div className="room-page">
+      <header className="room-header">
+        <h1 className="room-title">Video Room</h1>
+        <button className="leave-button" onClick={() => navigate('/home')}>
+          Leave Room
+        </button>
+      </header>
+
+      <main className="room-main">
+      <div className="main-video">
+          {isCameraOn || isPresenting ? (
+            <video
+              ref={videoRef}
+              autoPlay
+              playsInline
+              muted
+              className="video-element"
+            />
+          ) : (
+            <div className="no-video">
+              <img
+                src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
+                alt="User"
+                className="user-image"
+              />
+            </div>
+          )}
+          <div className="video-label">
+            You / Host {isMuted ? '(Muted)' : ''} {isPresenting ? '(Presenting)' : ''}
           </div>
         </div>
 
-        {/* Other participants would appear here */}
-        <div className="video-tile" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <div style={{ color: 'white', textAlign: 'center' }}>
-            <p>This is a demo version</p>
-            <p>Actual video would appear here</p>
-          </div>
+        <div className="participants-grid">
+          {[...Array(4)].map((_, index) => (
+            <div className="video-tile participant-placeholder" key={index}>
+              <div className="video-placeholder">
+                <img
+                  src={`https://api.dicebear.com/7.x/miniavs/svg?seed=032${index + 2}`}
+                  alt={`Participant ${index + 1}`}
+                  className="user-image"
+                />
+              </div>
+              <div className="video-label">Participant {index + 1}</div>
+            </div>
+          ))}
         </div>
-      </div>
+      </main>
 
-      <div className="video-controls">
+      <footer className="room-footer">
         <button
-          className={`control-button ${audioEnabled ? 'active' : ''}`}
-          onClick={toggleAudio}
+          className={`control-button ${isMuted ? 'active' : ''}`}
+          onClick={toggleMute}
         >
-          {audioEnabled ? 'Mute' : 'Unmute'}
+          {isMuted ? <MicOff size={20} /> : <Mic size={20} />}
+          {isMuted ? ' Unmute' : ' Mute'}
         </button>
 
         <button
-          className={`control-button ${videoEnabled ? 'active' : ''}`}
-          onClick={toggleVideo}
+          className={`control-button ${isCameraOn ? 'active' : ''}`}
+          onClick={toggleCamera}
         >
-          {videoEnabled ? 'Hide Video' : 'Show Video'}
+          {isCameraOn ? <Video size={20} /> : <VideoOff size={20} />}
+          {isCameraOn ? ' Hide Camera' : ' Show Camera'}
         </button>
 
         <button
-          className={`control-button ${screenShareEnabled ? 'active' : ''}`}
-          onClick={toggleScreenShare}
+          className={`control-button ${isPresenting ? 'danger' : ''}`}
+          onClick={startPresenting}
         >
-          {screenShareEnabled ? 'Stop Sharing' : 'Share Screen'}
+          {isPresenting ? <X size={20} /> : <Monitor size={20} />}
+          {isPresenting ? ' Stop Presenting' : ' Present Screen'}
         </button>
-
-        <button
-          className="control-button danger"
-          onClick={handleLeaveRoom}
-        >
-          Leave
-        </button>
-      </div>
+      </footer>
     </div>
   );
 };

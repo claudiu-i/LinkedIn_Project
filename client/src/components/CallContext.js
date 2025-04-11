@@ -1,5 +1,6 @@
 import React, { createContext, useState, useContext, useCallback, useEffect, } from 'react';
 import { message } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
 // Create context
 const CallContext = createContext();
@@ -59,8 +60,12 @@ export const CallProvider = ({ children }) => {
       isVideo: values.callType === 'video'
     };
     
-    setCalls(prevCalls => [newCall, ...prevCalls]);
-    message.success(`Call "${values.callName}" created successfully!`);
+    setCalls(prevCalls => {
+      const updatedCalls = [newCall, ...prevCalls];
+      localStorage.setItem('calls', JSON.stringify(updatedCalls));
+      return updatedCalls;
+    });
+    message.success(`Room "${values.callName}" created successfully!`);
     closeCallModal();
   }, [closeCallModal]);
 
@@ -71,22 +76,18 @@ export const CallProvider = ({ children }) => {
     
     // Simulate API call with timeout
     setTimeout(() => {
-      // Randomly decide whether to show error or sample data
-      const showError = Math.random() > 0.8;
-      
-      if (showError) {
-        setLoadError(true);
-      } else {
-        setCalls(sampleCalls);
-      }
-      
+      const storedCalls = JSON.parse(localStorage.getItem('calls')) || sampleCalls;
+      setCalls(storedCalls);
+      localStorage.setItem('calls', JSON.stringify(storedCalls));
       setLoading(false);
     }, 1500);
   }, []);
 
   // Function to join a call
+  const navigate = useNavigate();
   const joinCall = useCallback((callId) => {
-    message.info(`Joining call ID: ${callId}`);
+    message.info(`Joining room ID: ${callId}`);
+    navigate(`/room/${callId}`);
     // In a real app, you would implement the actual join functionality here
   }, []);
 

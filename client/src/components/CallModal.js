@@ -58,7 +58,7 @@ const CallModal = () => {
     <Modal
       title={
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <Title level={5} style={{ margin: 0 }}>Create a call</Title>
+          <Title level={5} style={{ margin: 0 }}>Create a room</Title>
           <Button 
             type="text" 
             icon={<CloseOutlined />} 
@@ -93,7 +93,7 @@ const CallModal = () => {
       >
         {/* Call type */}
         <Form.Item 
-          label="Call type" 
+          label="Room type" 
           name="callType"
         >
           <Radio.Group onChange={handleCallTypeChange}>
@@ -122,11 +122,11 @@ const CallModal = () => {
 
         {/* Call name */}
         <Form.Item 
-          label={<>Call name<span style={{ color: 'red' }}>*</span></>} 
+          label={<>Room name<span style={{ color: 'red' }}>*</span></>} 
           name="callName"
-          rules={[{ required: true, message: 'Please enter a call name' }]}
+          rules={[{ required: true, message: 'Please enter a room name' }]}
         >
-          <Input placeholder="Enter call name" maxLength={75} showCount />
+          <Input placeholder="Enter room name" maxLength={75} showCount />
         </Form.Item>
 
         {/* Timezone */}
@@ -225,12 +225,12 @@ const CallModal = () => {
 
         {/* Private call */}
         <Form.Item name="privateCall" valuePropName="checked">
-          <Checkbox>Private Call</Checkbox>
+          <Checkbox>Private Room</Checkbox>
         </Form.Item>
 
         <Divider />
 
-        <Title level={5}>Call Settings</Title>
+        <Title level={5}>Room Settings</Title>
 
         {/* Call settings */}
         <Form.Item name="enableVideo" valuePropName="checked">
@@ -255,7 +255,7 @@ const CallModal = () => {
             Cancel
           </Button>
           <Button type="primary" htmlType="submit">
-            Create Call
+            Create Room
           </Button>
         </div>
       </Form>

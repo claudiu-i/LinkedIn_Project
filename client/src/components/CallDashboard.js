@@ -30,7 +30,7 @@ const CallDashboard = () => {
     <Layout style={{ minHeight: '100vh', background: '#f5f5f5' }}>
       <Header style={{ background: 'white', borderBottom: '1px solid #e8e8e8', padding: '0 16px' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: '100%' }}>
-          <Title level={4} style={{ margin: 0, color: '#0a66c2' }}>LinkedIn Calls</Title>
+          <Title level={4} style={{ margin: 0, color: '#0a66c2' }}>LinkedIn Rooms</Title>
           <Space>
             <Button>Profile</Button>
             <CreateCallButton />
@@ -40,18 +40,18 @@ const CallDashboard = () => {
       
       <Content style={{ padding: '0 50px', marginTop: 40 }}>
         <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
-          <Title level={2}>Virtual Networking and Call Events</Title>
+          <Title level={2}>Virtual Networking and Events</Title>
           <Paragraph style={{ fontSize: '16px', color: '#595959', marginBottom: '30px' }}>
-            Join LinkedIn Calls to connect with professionals and recruiters in real-time
+            Join LinkedIn Rooms to connect with professionals and recruiters in real-time
           </Paragraph>
           
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '50px' }}>
-            <CreateCallButton size="large" text="Create a Call" />
+            <CreateCallButton size="large" text="Create a Room" />
           </div>
           
           <div style={{ textAlign: 'left', marginBottom: '100px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-              <Title level={4} style={{ margin: 0 }}>Active Calls</Title>
+              <Title level={4} style={{ margin: 0 }}>Active Rooms</Title>
               {!loading && (
                 <Button 
                   icon={<ReloadOutlined />} 
@@ -67,18 +67,18 @@ const CallDashboard = () => {
               {loading ? (
                 <div style={{ padding: '50px 0', textAlign: 'center' }}>
                   <Spin size="large" />
-                  <div style={{ marginTop: '20px' }}>Loading active calls...</div>
+                  <div style={{ marginTop: '20px' }}>Loading active rooms...</div>
                 </div>
               ) : loadError ? (
                 <div style={{ padding: '50px 0', textAlign: 'center', color: '#ff4d4f' }}>
-                  Failed to load calls
+                  Failed to load rooms
                   <div style={{ marginTop: '10px' }}>
                     <Button type="primary" onClick={loadCalls}>Retry</Button>
                   </div>
                 </div>
               ) : calls.length === 0 ? (
                 <Empty 
-                  description="No active calls at the moment" 
+                  description="No active rooms at the moment" 
                   image={Empty.PRESENTED_IMAGE_SIMPLE}
                   style={{ padding: '40px 0' }}
                 />

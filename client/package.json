@@ -16,7 +16,8 @@
         "react-scripts": "5.0.1",
         "simple-peer": "^9.11.1",
         "socket.io-client": "^4.6.1",
-        "web-vitals": "^3.3.1"
+        "web-vitals": "^3.3.1",
+        "lucide-react": "^0.266.0"
     },
     "scripts": {
         "start": "react-scripts start",

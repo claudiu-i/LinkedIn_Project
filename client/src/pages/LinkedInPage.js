@@ -15,6 +15,9 @@ import {
   Badge,
   Dropdown,
   List,
+  Empty, 
+  Spin, 
+  Tag,
 } from 'antd';
 import Icon, {
   PlusOutlined,
@@ -23,6 +26,8 @@ import Icon, {
   MoreOutlined, 
   EditOutlined, 
   CaretUpOutlined, 
+  UserOutlined,
+  ClockCircleOutlined,
 } from '@ant-design/icons';
 import { useCallContext, setModalTopPosition } from '../components/CallContext';
 
@@ -344,7 +349,7 @@ const SmallRoomsSvg = () => (
   <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' width='16' height='16' fill='current'>
   <path fill-rule="evenodd" d="M2.218 0C1.545 0 1 .545 1 1.218v4.57c0 .674.545 1.22 1.218 1.22h9.564c.673 0 1.218-.546 1.218-1.22v-4.57C13 .545 12.455 0 11.782 0zm2.703 9.441a1.441 1.441 0 1 1-2.883 0a1.441 1.441 0 0 1 2.883 0m5.604 1.442a1.441 1.441 0 1 0 0-2.883a1.441 1.441 0 0 0 0 2.883m-7.046.778a2.336 2.336 0 0 0-2.303 1.947c-.035.212.143.388.358.388h3.891c.215 0 .393-.176.358-.388a2.336 2.336 0 0 0-2.304-1.947m4.743 1.947a2.336 2.336 0 0 1 4.607 0c.035.212-.143.388-.358.388H8.58c-.214 0-.392-.176-.357-.388ZM8.123 2.121a1.123 1.123 0 1 1-2.246 0a1.123 1.123 0 0 1 2.246 0M5.025 5.657a2.003 2.003 0 0 1 3.95 0c.03.182-.122.332-.306.332H5.33c-.184 0-.336-.15-.306-.332Z" clip-rule="evenodd"/>
   </svg>
-  )
+)
 const LikeSvg = () => (
 <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' width='16' height='16' fill='black'>
   <path d="M12.91 7l-2.25-2.57a8.21 8.21 0 01-1.5-2.55L9 1.37A2.08 2.08 0 007 0a2.08 2.08 0 00-2.06 2.08v1.17a5.81 5.81 0 00.31 1.89l.28.86H2.38A1.47 1.47 0 001 7.47a1.45 1.45 0 00.64 1.21 1.48 1.48 0 00-.37 2.06 1.54 1.54 0 00.62.51h.05a1.6 1.6 0 00-.19.71A1.47 1.47 0 003 13.42v.1A1.46 1.46 0 004.4 15h4.83a5.61 5.61 0 002.48-.58l1-.42H14V7zM12 12.11l-1.19.52a3.59 3.59 0 01-1.58.37H5.1a.55.55 0 01-.53-.4l-.14-.48-.49-.21a.56.56 0 01-.34-.6l.09-.56-.42-.42a.56.56 0 01-.09-.68L3.55 9l-.4-.61A.28.28 0 013.3 8h5L7.14 4.51a4.15 4.15 0 01-.2-1.26V2.08A.09.09 0 017 2a.11.11 0 01.08 0l.18.51a10 10 0 001.9 3.24l2.84 3z"></path>
@@ -405,8 +410,8 @@ const headerStyle = {
   boxShadow: '0 1px 2px rgba(0,0,0,0.1)',
   width: '100%',
   position: 'fixed',
-  zIndex: 99999
-}
+  zIndex: 2
+};
 const contentStyle = {
   textAlign: 'center',
   minHeight: 120,
@@ -415,12 +420,12 @@ const contentStyle = {
   lineHeight: '120px',
   color: '#fff',
   backgroundColor: '#f4f2ee'
-}
+};
 const siderStyle = {
   lineHeight: '120px',
   color: '#fff',
   backgroundColor: '#f4f2ee'
-}
+};
 const footerStyle = {
   display: 'flex',
   flexWrap: 'wrap',
@@ -434,57 +439,57 @@ const footerStyle = {
   maxWidth: '500px',
   lineHeight: '2.2',
   width: 'calc(100% - 50px)'
-}
+};
 const footerItemStyle = {
     padding: '0 8px',
     margin: '0px 0',
     position: 'relative',
     cursor: 'pointer',
-  }
+};
 const layoutStyle = {
   borderRadius: 8,
   overflow: 'hidden',
   width: 'calc(100%)',
   maxWidth: 'calc(100%)',
   backgroundColor: '#f4f2ee'
-}
+};
 const layoutCenterStyle = {
   display: 'flex',
   justifyContent: 'center',
   flexDirection: 'row',
   gap: '25px',
   backgroundColor: '#f4f2ee'
-}
+};
 const divCenterStyle = {
   margin: 'calc(1% + 50px) 15%'
-}
+};
 const navItemStyle = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   padding: '0 8px'
-}
+};
 const iconStyle = {
   fontSize: 24,
   color: '#666',
   transition: 'color 0.3s'
-}
+};
 const homeStyle = {
   fontSize: 24,
   color: 'black',
   transition: 'color 0.3s'
-}
+};
 const labelStyle = {
   fontSize: 12,
   lineHeight: '1.3',
   marginTop: 0
-}
+};
 const activeLabelStyle = {
   fontSize: 12,
   lineHeight: '1.3',
   marginTop: 0,
   borderBottom: '2px solid black'
-}
+};
 const LinkedInCard = ({
   name = 'John Smith',
   role = 'I go to _ university',
@@ -579,7 +584,7 @@ const LinkedInCard = ({
       </div>
     </Card>
   )
-}
+};
 const messageData = [
   {
     id: 1,
@@ -609,7 +614,30 @@ const messageData = [
     unread: false
   }
 ];
-
+const PublicRooms = () => {
+  return (
+    <Card
+    className={'linkedin-content'}
+    style={{width: 'auto',
+        borderRadius: 8,
+        overflow: 'hidden',
+        boxShadow: '0 1px 2px rgba(0,0,0,0.15)',
+        fontWeight: 600,
+        }}
+    >
+      <p style={{fontSize: 20, marginLeft: -25}}>Public Rooms</p>
+      <div style={{display: 'flex', gap:40, marginTop: 10}}>
+        <div style={{display:'flex', flexDirection:'column'}}>
+        <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=1" size={50} style={{ backgroundColor: '#e7e2dc', padding: 0 }}/>
+        </div>
+        <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=1" size={50} style={{ backgroundColor: '#e7e2dc', padding: 0 }}/>
+        <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=1" size={50} style={{ backgroundColor: '#e7e2dc', padding: 0 }}/>
+        <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=1" size={50} style={{ backgroundColor: '#e7e2dc', padding: 0 }}/>
+        <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=1" size={50} style={{ backgroundColor: '#e7e2dc', padding: 0 }}/>
+        <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=1" size={50} style={{ backgroundColor: '#e7e2dc', padding: 0 }}/>
+      </div>
+    </Card>
+)}
 const LinkedInMessaging = () => {
   const [collapsed, setCollapsed] = useState(true);
 
@@ -638,7 +666,7 @@ const LinkedInMessaging = () => {
       </Avatar>
     );
   };
-
+    const { calls, loading, loadError, loadCalls, joinCall } = useCallContext();
   return (
     <Card 
       bodyStyle={{ padding: '0px' }}
@@ -767,6 +795,72 @@ const LinkedInMessaging = () => {
               {/* Content for "Other" tab */}
               <div style={{ padding: '16px', textAlign: 'center' }}>
                 <Text type="secondary">No messages in Other</Text>
+              </div>
+            </TabPane>
+            <TabPane tab="Rooms" key="3">
+            
+              <div style={{marginLeft: 15}}>
+                {loading ? (
+                  <div style={{ padding: '50px 0', textAlign: 'center' }}>
+                    <Spin size="large" />
+                    <div style={{ marginTop: '20px' }}>Loading active rooms...</div>
+                  </div>
+                ) : loadError ? (
+                  <div style={{ padding: '50px 0', textAlign: 'center', color: '#ff4d4f' }}>
+                    Failed to load rooms
+                    <div style={{ marginTop: '10px' }}>
+                      <Button type="primary" onClick={loadCalls}>Retry</Button>
+                    </div>
+                  </div>
+                ) : calls.length === 0 ? (
+                  <Empty 
+                    description="No active rooms at the moment" 
+                    image={Empty.PRESENTED_IMAGE_SIMPLE}
+                    style={{ padding: '40px 0' }}
+                  />
+                ) : (
+                  <List
+                    dataSource={calls}
+                    renderItem={item => (
+                      <List.Item
+                        actions={[
+                          <Button 
+                            type="primary" 
+                            key="join"
+                            onClick={() => joinCall(item.id)}
+                            style={{marginBottom: 20}}
+                          >
+                            Join
+                          </Button>
+                        ]}
+                      >
+                        <List.Item.Meta
+                          title={
+                            <div>
+                              {item.name} 
+                              {item.isPrivate && (
+                                <Tag color="default" style={{ marginLeft: '8px' }}>Private</Tag>
+                              )}
+                            </div>
+                          }
+                          description={
+                            <Space direction="vertical" size={1}>
+                              <Text type="secondary">
+                                <UserOutlined /> Organized by {item.organizer}
+                              </Text>
+                              <Text type="secondary">
+                                <ClockCircleOutlined /> Starting at {new Date(item.startTime).toLocaleTimeString()}
+                              </Text>
+                              <Text type="secondary">
+                                {item.participants}/{item.maxParticipants} participants
+                              </Text>
+                            </Space>
+                          }
+                        />
+                      </List.Item>
+                    )}
+                  />
+                )}
               </div>
             </TabPane>
           </Tabs>
@@ -1040,7 +1134,7 @@ const LinkedInNavbar = () => {
       </div>
     </div>
   )
-}
+};
 const LinkedInContentCard = ({
   name = 'Cornell University',
   followers = '688,885',
@@ -1081,7 +1175,7 @@ const LinkedInContentCard = ({
     <a href="##"><img src={contentUrl} alt="" /></a>
     <p style={{position: 'absolute', textAlign: 'left', bottom: 75, right: 15, color: '#666666', fontSize: 13, fontWeight: 500}}><a href='##' className='fake-link' style={{color: '#666666'}}>{comments} comments</a> • <a href='##' className='fake-link' style={{color: '#666666'}}>{reposts} reposts</a></p>
   </Card> 
-  )}
+)};
 const LinkedInContent = () => {
   const { openCallModal } = useCallContext();
   return (
@@ -1107,6 +1201,8 @@ const LinkedInContent = () => {
     />
   </Card>
 
+  <PublicRooms />
+
   <LinkedInContentCard avatarUrl='https://media.licdn.com/dms/image/v2/C4D0BAQGRhsociEn4gQ/company-logo_200_200/company-logo_200_200/0/1631367875582?e=1749686400&v=beta&t=K48GH_goxDtqBIWPOceNWDCWgzL1jLap2X4MO0ebmkM' contentUrl="https://media.licdn.com/dms/image/v2/D4E22AQHWNtY5CQvocA/feedshare-shrink_800/B4EZSzlpyMG0Ag-/0/1738179780929?e=1744243200&v=beta&t=e2wz6eXGy3mGl9i64f2NeJdTqUTB3ZENJ4JfXiiYN3k" message = <p>We are proud to be ranked No. 10 on Fortune World's Most Admired Companies™ 2025 list, American Express's third consecutive year receiving a Top 10 recognition. <br /><br />The award recognizes Amex's commitment to delivering exceptional products, services, and experiences for customers and communities — and the work and achievements of the company's colleagues around the world. <br /><br />Read more: <a href='##' className='fake-link'>https://go.amex/qHF4sj</a></p> followers='2,496,518' date='1mo' name='American Express'/>
   
   <LinkedInContentCard avatarUrl='https://media.licdn.com/dms/image/v2/D4E0BAQFMhKgeR7EYAg/company-logo_100_100/company-logo_100_100/0/1719256989269/anthropicresearch_logo?e=1749686400&v=beta&t=rh_3QgrUGmRTh-lk5Lelat7o9wp1ysTH4asI-L4HXMk' contentUrl="https://media.licdn.com/dms/image/v2/D4E22AQHqnYzO3OD-PQ/feedshare-shrink_800/B4EZVsb119HcAg-/0/1741280993388?e=1744243200&v=beta&t=Wfii3j3tbCiB2kP1aIX7jL7EKZINSC4k1GpzfvxAip0" message = <p>We've overhauled the Anthropic Console to serve as one place to build, test, and iterate on prompts with Claude.
@@ -1125,7 +1221,7 @@ const LinkedInContent = () => {
   
   <LinkedInContentCard avatarUrl='https://media.licdn.com/dms/image/v2/D560BAQHpzXbqSyR74A/company-logo_200_200/B56ZT8EYB8HsAI-/0/1739395793272/openai_logo?e=1749686400&v=beta&t=JyxkDoEeYC7T_Toj9cG-YQhVJTNUGoBt_oAjIZXw4Nw' contentUrl="https://media.licdn.com/dms/image/v2/D5622AQFgVHIz_LqauA/feedshare-shrink_800/B56ZQduyjaGQAg-/0/1735665592947?e=1744243200&v=beta&t=IDbvBPloDv-ASCjQccRQPC0pVPllkYwilMkCs9HWeVY" message = <p>New year, new you. What goals are we crushing in 2025?</p> followers='6,628,187' date='2mo' name='OpenAI'/>
 </div>
-)}
+)};
 const LinkedInPage = () =>
   { 
     
