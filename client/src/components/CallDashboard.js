@@ -45,8 +45,9 @@ const CallDashboard = () => {
             Join LinkedIn Rooms to connect with professionals and recruiters in real-time
           </Paragraph>
           
-          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '50px' }}>
-            <CreateCallButton size="large" text="Create a Room" />
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '50px', gap: '20px' }}>
+            <CreateCallButton size="large" text="Create a Room"/>
+            <CreateCallButton size="large" text="Return to LinkedIn" where='/' icon = {false} />
           </div>
           
           <div style={{ textAlign: 'left', marginBottom: '100px' }}>

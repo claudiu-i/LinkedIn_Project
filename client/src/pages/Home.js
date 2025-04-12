@@ -43,7 +43,7 @@ const Home = () => {
         <section className="hero">
           <h2>Virtual Networking and Recruitment Events</h2>
           <p>Join LinkedIn Rooms to connect with professionals and recruiters in real-time</p>
-            <Link to="/create-room" className="button primary large">Create a Room</Link>
+              <Link to="/create-room" className="button primary large">Create a Room</Link>
         </section>
 
         <section className="rooms-list">

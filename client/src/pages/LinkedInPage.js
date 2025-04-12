@@ -5,7 +5,7 @@ import corn from '../imgs/1741881633007.jpg';
 import bow from '../imgs/1740498249061.jpg';
 import goog from '../imgs/1741888140264.jpg';
 import oai from '../imgs/1735665592947.jpg';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import {
   Layout,
   Avatar,
@@ -633,14 +633,12 @@ const PublicRooms = () => {
     >
       <p style={{fontSize: 20, marginLeft: -25}}>Public Rooms</p>
       <div style={{display: 'flex', gap:40, marginTop: 10}}>
-        <div style={{display:'flex', flexDirection:'column'}}>
-        <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=1" size={50} style={{ backgroundColor: '#e7e2dc', padding: 0 }}/>
-        </div>
-        <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=1" size={50} style={{ backgroundColor: '#e7e2dc', padding: 0 }}/>
-        <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=1" size={50} style={{ backgroundColor: '#e7e2dc', padding: 0 }}/>
-        <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=1" size={50} style={{ backgroundColor: '#e7e2dc', padding: 0 }}/>
-        <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=1" size={50} style={{ backgroundColor: '#e7e2dc', padding: 0 }}/>
-        <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=1" size={50} style={{ backgroundColor: '#e7e2dc', padding: 0 }}/>
+        <Link to= {`/room/${Math.floor(Math.random() * 100000)}`}><Avatar src= {`https://api.dicebear.com/7.x/miniavs/svg?seed=1`} size={50} className='pub-rooms'/></Link>
+        <Link to= {`/room/${Math.floor(Math.random() * 100000)}`}><Avatar src= {`https://api.dicebear.com/7.x/miniavs/svg?seed=1${Math.floor(Math.random() * 10)}${Math.floor(Math.random() * 10)}`} size={50} className='pub-rooms'/></Link>
+        <Link to= {`/room/${Math.floor(Math.random() * 100000)}`}><Avatar src= {`https://api.dicebear.com/7.x/miniavs/svg?seed=1${Math.floor(Math.random() * 10)}${Math.floor(Math.random() * 10)}`} size={50} className='pub-rooms'/></Link>
+        <Link to= {`/room/${Math.floor(Math.random() * 100000)}`}><Avatar src= {`https://api.dicebear.com/7.x/miniavs/svg?seed=1${Math.floor(Math.random() * 10)}${Math.floor(Math.random() * 10)}`} size={50} className='pub-rooms'/></Link>
+        <Link to= {`/room/${Math.floor(Math.random() * 100000)}`}><Avatar src= {`https://api.dicebear.com/7.x/miniavs/svg?seed=1${Math.floor(Math.random() * 10)}${Math.floor(Math.random() * 10)}`} size={50} className='pub-rooms'/></Link>
+        <Link to= {`/room/${Math.floor(Math.random() * 100000)}`}><Avatar src= {`https://api.dicebear.com/7.x/miniavs/svg?seed=1${Math.floor(Math.random() * 10)}${Math.floor(Math.random() * 10)}`} size={50} className='pub-rooms'/></Link>
       </div>
     </Card>
 )}

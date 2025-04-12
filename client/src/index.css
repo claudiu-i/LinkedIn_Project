@@ -61,6 +61,19 @@
     margin-bottom: 40px;
   }
   
+  .pub-rooms {
+    background-color: white;
+    padding: 0;
+    transition: background-color 0.3s ease;
+    transform: border-color 0.3s ease;
+  }
+
+  .pub-rooms:hover {
+    cursor: pointer;
+    background-color: #e7e2dc;
+    border: solid 2px #ddd;
+  }
+
   .logo h1 {
     font-size: 24px;
     color: #0077b5;

@@ -80,7 +80,7 @@ export const CallProvider = ({ children }) => {
       setCalls(storedCalls);
       localStorage.setItem('calls', JSON.stringify(storedCalls));
       setLoading(false);
-    }, 1500);
+    }, 600);
   }, []);
 
   // Function to join a call
