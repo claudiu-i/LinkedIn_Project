@@ -1,4 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import amex from '../imgs/1743443363075.jpg';
+import anthr from '../imgs/1741280993493.jpg';
+import corn from '../imgs/1741881633007.jpg';
+import bow from '../imgs/1740498249061.jpg';
+import goog from '../imgs/1741888140264.jpg';
+import oai from '../imgs/1735665592947.jpg';
 import { useNavigate } from 'react-router-dom';
 import {
   Layout,
@@ -1141,9 +1147,9 @@ const LinkedInContentCard = ({
   date = '2w',
   comments = Math.floor(Math.random() * 999),
   reposts = Math.floor(Math.random() * 300),
-  message = "Joy to all we love the best. From the Hill to your home, happy Valentine's Day, Cornellians.",
+  message = "To participate, tell us how your time at Cornell prepared you for life after the Hill. Include your preferred college or unit annual fund in the answer. We'll pick a random winner by 10:00 p.m. ET, and that college or unit's annual fund will receive an extra $2,000!",
   avatarUrl = "https://media.licdn.com/dms/image/v2/C560BAQE8SOXGRyv7LA/company-logo_100_100/company-logo_100_100/0/1631339899678?e=1749081600&v=beta&t=wRS0z-PL_Mm4v1bQm9dAxFc7f5ZPIRJ1HTXEXKSc8pM",
-  contentUrl = "https://media.licdn.com/dms/image/v2/D5610AQHrXgLOV0hhag/image-shrink_800/B56ZUGee18GsAg-/0/1739570409399?e=1741597200&v=beta&t=feVwHDya605j0w2-CiUovoakNJDqWbovOz4NVPC0VpI"}) => {
+  contentUrl = {corn}}) => {
   return (
     <Card
     className={'content-card'}
@@ -1203,9 +1209,9 @@ const LinkedInContent = () => {
 
   <PublicRooms />
 
-  <LinkedInContentCard avatarUrl='https://media.licdn.com/dms/image/v2/C4D0BAQGRhsociEn4gQ/company-logo_200_200/company-logo_200_200/0/1631367875582?e=1749686400&v=beta&t=K48GH_goxDtqBIWPOceNWDCWgzL1jLap2X4MO0ebmkM' contentUrl="https://media.licdn.com/dms/image/v2/D4E22AQHWNtY5CQvocA/feedshare-shrink_800/B4EZSzlpyMG0Ag-/0/1738179780929?e=1744243200&v=beta&t=e2wz6eXGy3mGl9i64f2NeJdTqUTB3ZENJ4JfXiiYN3k" message = <p>We are proud to be ranked No. 10 on Fortune World's Most Admired Companies™ 2025 list, American Express's third consecutive year receiving a Top 10 recognition. <br /><br />The award recognizes Amex's commitment to delivering exceptional products, services, and experiences for customers and communities — and the work and achievements of the company's colleagues around the world. <br /><br />Read more: <a href='##' className='fake-link'>https://go.amex/qHF4sj</a></p> followers='2,496,518' date='1mo' name='American Express'/>
+  <LinkedInContentCard avatarUrl='https://media.licdn.com/dms/image/v2/C4D0BAQGRhsociEn4gQ/company-logo_200_200/company-logo_200_200/0/1631367875582?e=1749686400&v=beta&t=K48GH_goxDtqBIWPOceNWDCWgzL1jLap2X4MO0ebmkM' contentUrl={amex} message = <p>We are delighted to be recognized as a Handshake Early Talent Award winner for the third time. This award reflects Amex's commitment to maintaining a strong workplace culture by continually investing in programs, benefits, and resources to ensure our hashtag <a href='##' className='fake-link'>#TeamAmex</a> colleagues have the support they need to be and deliver their best. Learn more about our internship opportunities: <a href='##' className='fake-link'>https://go.amex/7XZMJV</a></p> followers='2,496,518' date='1mo' name='American Express'/>
   
-  <LinkedInContentCard avatarUrl='https://media.licdn.com/dms/image/v2/D4E0BAQFMhKgeR7EYAg/company-logo_100_100/company-logo_100_100/0/1719256989269/anthropicresearch_logo?e=1749686400&v=beta&t=rh_3QgrUGmRTh-lk5Lelat7o9wp1ysTH4asI-L4HXMk' contentUrl="https://media.licdn.com/dms/image/v2/D4E22AQHqnYzO3OD-PQ/feedshare-shrink_800/B4EZVsb119HcAg-/0/1741280993388?e=1744243200&v=beta&t=Wfii3j3tbCiB2kP1aIX7jL7EKZINSC4k1GpzfvxAip0" message = <p>We've overhauled the Anthropic Console to serve as one place to build, test, and iterate on prompts with Claude.
+  <LinkedInContentCard avatarUrl='https://media.licdn.com/dms/image/v2/D4E0BAQFMhKgeR7EYAg/company-logo_100_100/company-logo_100_100/0/1719256989269/anthropicresearch_logo?e=1749686400&v=beta&t=rh_3QgrUGmRTh-lk5Lelat7o9wp1ysTH4asI-L4HXMk' contentUrl={anthr} message = <p>We've overhauled the Anthropic Console to serve as one place to build, test, and iterate on prompts with Claude.
   <br/><br/>
   And now you can share prompts with your teammates, too.
   <br/><br/>
@@ -1213,20 +1219,20 @@ const LinkedInContent = () => {
   <br/><br/>
   Read more: <a href="##">https://lnkd.in/ePNCEsXY</a></p> followers='785,329' date='3d' name='Anthropic'/>
 
-  <LinkedInContentCard />
+  <LinkedInContentCard contentUrl={corn} />
 
-  <LinkedInContentCard avatarUrl='https://media.licdn.com/dms/image/v2/C4E0BAQGkvD12zxajlA/company-logo_100_100/company-logo_100_100/0/1679328143343/cornell_university_college_of_computing_and_information_science_logo?e=1749686400&v=beta&t=U65jSqNR5UEGZb0nlUWd4Hlr3B6VmMlQHDw88IQ0ugw' contentUrl='https://media.licdn.com/dms/image/v2/D5622AQEpDYyRZL0Vgg/feedshare-shrink_800/B56ZU9x6FaHoAo-/0/1740498249061?e=1744243200&v=beta&t=fM7ScmRfHcwkKo93AEfIfulYXoHHMj-uJ-llp_UaCDI' message = 'Cornell Bowers is seeking a Senior Research Administrator who will manage a designated portfolio of Bowers PI sponsored awards, oversee sponsor reporting, develop complex financial reports, and support central and unit financial management and reporting.' name='Cornell Ann S. Bowers College of Computing and Information Science' followers='2,951' date='1w' />
+  <LinkedInContentCard avatarUrl='https://media.licdn.com/dms/image/v2/C4E0BAQGkvD12zxajlA/company-logo_100_100/company-logo_100_100/0/1679328143343/cornell_university_college_of_computing_and_information_science_logo?e=1749686400&v=beta&t=U65jSqNR5UEGZb0nlUWd4Hlr3B6VmMlQHDw88IQ0ugw' contentUrl={bow} message = 'Cornell Bowers is seeking a Senior Research Administrator who will manage a designated portfolio of Bowers PI sponsored awards, oversee sponsor reporting, develop complex financial reports, and support central and unit financial management and reporting.' name='Cornell Ann S. Bowers College of Computing and Information Science' followers='2,951' date='1w' />
   
-  <LinkedInContentCard avatarUrl='https://media.licdn.com/dms/image/v2/C4D0BAQHiNSL4Or29cg/company-logo_100_100/company-logo_100_100/0/1631311446380?e=1749686400&v=beta&t=Gwp7TJ03ucl_lSWXsdG8lCgHnVoQKbH4_zMgayw38XQ' contentUrl="https://media.licdn.com/dms/image/v2/D5610AQGX7h3yUYLqfQ/image-shrink_800/B56ZUBkWJGHoAg-/0/1739488060932?e=1742090400&v=beta&t=BOxF3CnA2eE_PRYqiAdm6brvNAyB1mPUfuFNo8dnLa8" message = <p>Join our dynamic marketing team! We're seeking talented individuals for roles in Product Marketing, YouTube Marketing, Digital Marketing and more. Contribute to innovative campaigns and work with cutting-edge tech. → <a href='##'>https://goo.gle/40HLscN</a></p> followers='36,449,414' date='1w' name='Google'/>
+  <LinkedInContentCard avatarUrl='https://media.licdn.com/dms/image/v2/C4D0BAQHiNSL4Or29cg/company-logo_100_100/company-logo_100_100/0/1631311446380?e=1749686400&v=beta&t=Gwp7TJ03ucl_lSWXsdG8lCgHnVoQKbH4_zMgayw38XQ' contentUrl={goog} message = <p>JYour favorite features on the Gemini App are getting upgrades, including Deep Research now on 2.0 Flash Thinking Experimental (available for all to try at no cost), additional apps and more → <a href='##'>https://goo.gle/4233QhY</a></p> followers='36,449,414' date='1w' name='Google'/>
   
-  <LinkedInContentCard avatarUrl='https://media.licdn.com/dms/image/v2/D560BAQHpzXbqSyR74A/company-logo_200_200/B56ZT8EYB8HsAI-/0/1739395793272/openai_logo?e=1749686400&v=beta&t=JyxkDoEeYC7T_Toj9cG-YQhVJTNUGoBt_oAjIZXw4Nw' contentUrl="https://media.licdn.com/dms/image/v2/D5622AQFgVHIz_LqauA/feedshare-shrink_800/B56ZQduyjaGQAg-/0/1735665592947?e=1744243200&v=beta&t=IDbvBPloDv-ASCjQccRQPC0pVPllkYwilMkCs9HWeVY" message = <p>New year, new you. What goals are we crushing in 2025?</p> followers='6,628,187' date='2mo' name='OpenAI'/>
+  <LinkedInContentCard avatarUrl='https://media.licdn.com/dms/image/v2/D560BAQHpzXbqSyR74A/company-logo_200_200/B56ZT8EYB8HsAI-/0/1739395793272/openai_logo?e=1749686400&v=beta&t=JyxkDoEeYC7T_Toj9cG-YQhVJTNUGoBt_oAjIZXw4Nw' contentUrl={oai} message = <p>New year, new you. What goals are we crushing in 2025?</p> followers='6,628,187' date='3mo' name='OpenAI'/>
 </div>
 )};
 const LinkedInPage = () =>
   { 
     
     const navigate = useNavigate();
-    
+
     return (
   <Layout style={layoutStyle}>
     <Header style={headerStyle}>
