@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  background-color: #0a66c2;
+  font-family: Arial, sans-serif;
+}
+
+#pageTitle {
+  color: #ffffff;
+  text-align: center;
+  margin: 20px 0 10px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+#videoDiv {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+#videoDiv video {
+  width: 45%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
