@@ -11,8 +11,9 @@
   display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
-    margin-bottom: 40px;
+    padding: 0px 0;
+    padding-top: 10px;
+    margin-bottom: 0px;
 }
 
 .room-title {

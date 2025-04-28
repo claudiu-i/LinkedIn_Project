@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Mic, MicOff, Video, VideoOff, Monitor, X } from 'lucide-react';
+import { Mic, MicOff, Video, VideoOff, Monitor, X, MessageCircle } from 'lucide-react';
 import './Room.css';
 
 const Room = () => {
@@ -146,6 +146,7 @@ const Room = () => {
       <header className="room-header">
         <div className="logo">
           <h1>LinkedIn Room</h1>
+          <h2 style={{position: 'absolute', top: 55, color: '#0077b5'}}>Participants: 5</h2>
         </div>
         <nav>
             <Link to="/home" className="button" style={{background: 'rgb(231, 25, 63', color: 'white'}}>Leave Room</Link>
@@ -215,6 +216,14 @@ const Room = () => {
         >
           {isPresenting ? <X size={20} /> : <Monitor size={20} />}
           {isPresenting ? ' Stop Presenting' : ' Present Screen'}
+        </button>
+
+        <button
+          className={`control-button ${''}`}
+          onClick={() => {}}
+        >
+          <MessageCircle size={20} />
+          Open Chat
         </button>
       </footer>
     </div>
